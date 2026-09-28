@@ -37,7 +37,7 @@
         .header h1 { margin: 0 0 6px 0; font-size: 2.1em; color: #22d3ee; text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; }
         .header p { margin: 0; color: #94a3b8; font-size: 1.02em; font-weight: 500; }
         
-        /* DASHBOARD - NORCET TIMERS */
+        /* DASHBOARD - TIMERS & STATS */
         .dashboard { 
             display: flex; 
             justify-content: space-between; 
@@ -109,7 +109,6 @@
         .s-corr { color: #10b981; }
         .s-wrong { color: #f87171; }
 
-        /* MOBILE RESPONSIVENESS */
         @media (max-width: 768px) {
             body { padding: 8px; }
             .header { padding: 22px 14px; margin-bottom: 16px; }
@@ -134,7 +133,7 @@
 <div class="container">
     <div class="header">
         <h1>Renal System Apex Masterclass (Part 2)</h1>
-        <p>100 Advanced NORCET & RRB Scenarios | 5 Sections (18m/sec) | 90 Mins Total | -0.33 Neg Marking</p>
+        <p>100 Advanced Scenario Questions | 5 Sections (18m/sec) | 90 Mins Total | -0.33 Neg Marking</p>
         
         <div class="dashboard">
             <div class="stat-box" id="section-display">Section: 1 / 5</div>
@@ -165,787 +164,125 @@
 </div>
 
 <script>
-const questionsPart1 = [
-    // ==========================================
-    // --- SECTION 1: CRITICAL CARE NEPHROLOGY, ADVANCED ACID-BASE & TOXICOLOGY (Q1 - Q20) ---
-    // ==========================================
-    {
-        "q": "A 42-year-old comatose patient is admitted with suspected toxic ingestion. Lab results show: Serum Na+ 140 mEq/L, K+ 4.8 mEq/L, Cl- 98 mEq/L, HCO3- 10 mEq/L, BUN 28 mg/dL, Glucose 90 mg/dL, Serum Osmolality 335 mOsm/kg. Urinalysis reveals envelope-shaped and needle-shaped calcium oxalate monohydrate crystals. What is the calculated Osmolal Gap, and what is the definitive antidote before initiating emergency hemodialysis?",
-        "o": [
-            "Osmolal gap is 43 mOsm/kg; administer Intravenous Fomepizole (4-methylpyrazole) immediately.",
-            "Osmolal gap is 12 mOsm/kg; administer Intravenous Naloxone bolus.",
-            "Osmolal gap is 25 mOsm/kg; administer Intravenous Methylene Blue.",
-            "Osmolal gap is 8 mOsm/kg; administer Sodium Bicarbonate infusion alone."
-        ],
-        "a": 0,
-        "t": "Toxicology / Critical Care Nephrology",
-        "e": "Calculated Osmolality = 2(Na) + (Glucose / 18) + (BUN / 2.8) = 2(140) + (90 / 18) + (28 / 2.8) = 280 + 5 + 10 = 295 mOsm/kg. Osmolal Gap = Measured (335) - Calculated (295) = 40 mOsm/kg (significantly elevated > 10). The presence of calcium oxalate crystals and high-gap acidosis confirms Ethylene Glycol toxicity. Fomepizole competitively inhibits alcohol dehydrogenase with an affinity 8,000 times higher than ethanol, halting the formation of cytotoxic glycolate and oxalate."
-    },
-    {
-        "q": "A patient with bipolar disorder on long-term Lithium carbonate therapy presents with polyuria (6.5 L/day), extreme polydipsia, serum sodium 152 mEq/L, and urine osmolality 140 mOsm/kg that fails to concentrate after administration of exogenous vasopressin (DDAVP). Which potassium-sparing diuretic is the specific treatment of choice to block lithium uptake into the collecting duct cells?",
-        "o": [
-            "Spironolactone",
-            "Amiloride",
-            "Triamterene",
-            "Eplerenone"
-        ],
-        "a": 1,
-        "t": "Nephrogenic DI / Pharmacology",
-        "e": "Lithium enters principal cells of the cortical collecting duct through epithelial sodium channels (ENaC). Once intracellular, it downregulates Aquaporin-2 water channels and impairs adenylate cyclase, causing Nephrogenic Diabetes Insipidus (NDI). Amiloride is the drug of choice because it selectively blocks ENaC, preventing lithium from entering the principal cells and allowing restoration of water permeability."
-    },
-    {
-        "q": "A patient with systemic candidiasis receives intravenous Amphotericin B deoxycholate. Within 48 hours, the patient develops severe hypokalemia (2.4 mEq/L), hypomagnesemia (1.2 mg/dL), and non-oliguria with rising creatinine. What is the physiological mechanism of Amphotericin B nephrotoxicity, and which pre-infusion nursing strategy mitigates it?",
-        "o": [
-            "Proximal tubular necrosis; administer loop diuretics 30 minutes before infusion.",
-            "Afferent arteriolar vasoconstriction and creation of pores in the distal tubular cell membranes, causing electrolyte wasting (Type 1 RTA-like picture); pre-hydrate with 500 to 1,000 mL of 0.9% Normal Saline.",
-            "Precipitation of insoluble drug crystals; alkalinize urine with sodium bicarbonate.",
-            "Selective efferent arteriolar vasodilation; infuse pre-treatment vasopressin."
-        ],
-        "a": 1,
-        "t": "Nephrotoxic Pharmacology / Amphotericin",
-        "e": "Amphotericin B binds to ergosterol in fungal membranes but also binds cholesterol in human renal tubular cells, creating non-specific transmembrane pores. This leads to marked leakage of potassium and magnesium into urine and causes severe afferent arteriolar vasoconstriction. Pre-loading with 0.9% Normal Saline blunts the tubuloglomerular feedback mechanism, significantly reducing renal vasoconstriction."
-    },
-    {
-        "q": "An HIV-positive patient on Tenofovir Disoproxil Fumarate (TDF), Emtricitabine, and Dolutegravir presents with progressive bone pain, proximal muscle weakness, and a rising serum creatinine. Urinalysis reveals glucosuria in the presence of a normal blood glucose (92 mg/dL), generalized aminoaciduria, hypophosphatemia (1.4 mg/dL), and hyperuricosuria. What specific tubular syndrome has TDF induced?",
-        "o": [
-            "Bartter Syndrome",
-            "Gitelman Syndrome",
-            "Renal Fanconi Syndrome (Proximal Tubular Dysfunction)",
-            "Liddle Syndrome"
-        ],
-        "a": 2,
-        "t": "Drug-Induced Tubulopathy / Fanconi",
-        "e": "Tenofovir Disoproxil Fumarate (TDF) accumulates in proximal tubular epithelial cells via organic anion transporters (OAT1/OAT3), causing mitochondrial DNA depletion and ultrastructural damage. This results in Fanconi Syndrome—the complete failure of the proximal convoluted tubule to reabsorb glucose, amino acids, phosphate, bicarbonate, and uric acid. The resulting renal phosphate wasting causes osteomalacia."
-    },
-    {
-        "q": "A patient with osteosarcoma is receiving high-dose intravenous Methotrexate (12 g/m²). To prevent acute crystal nephropathy, which mandatory supportive protocol must the oncology nurse execute?",
-        "o": [
-            "Aggressive urinary acidification using ascorbic acid to target urine pH < 5.0.",
-            "Continuous hyperhydration with intravenous Sodium Bicarbonate to maintain urine output > 100 mL/hr and maintain urine pH strictly ≥ 7.0.",
-            "Co-administration of high-dose probenecid to increase tubular excretion.",
-            "Restricting fluids to prevent hemodilution and administering oral ammonium chloride."
-        ],
-        "a": 1,
-        "t": "Oncology Nephrology / HD-MTX",
-        "e": "Methotrexate and its metabolite (7-OH-MTX) are poorly soluble in acidic environments. At a urine pH of 5.0, methotrexate precipitates out into needle-like crystals that physically occlude the renal tubules. Alkalinizing the urine with sodium bicarbonate to a pH ≥ 7.0 increases methotrexate solubility by more than 5- to 8-fold, preventing obstructive intratubular precipitation."
-    },
-    {
-        "q": "A patient with severe herpes simplex encephalitis receives an intravenous bolus of Acyclovir (Zovirax) 10 mg/kg pushed rapidly over 5 minutes. Six hours later, the patient is oliguric, and the urinalysis displays birefringent, needle-shaped crystals under polarized light. What caused this sudden acute renal failure?",
-        "o": [
-            "Acute interstitial nephritis from an allergic response to acyclovir vehicle.",
-            "Intratubular crystal precipitation of acyclovir in the collecting ducts secondary to rapid, high-concentration bolus exceeding drug solubility.",
-            "Direct immunological destruction of podocyte slit diaphragms.",
-            "Acute glomerulonephritis mediated by circulating immune complexes."
-        ],
-        "a": 1,
-        "t": "Nephrotoxic Pharmacology / Acyclovir",
-        "e": "Acyclovir is rapidly excreted by glomerular filtration and tubular secretion. Because it has low aqueous solubility in the urine, rapid intravenous infusion leads to high tubular drug concentrations that exceed saturation limits, resulting in rapid crystal precipitation in the collecting ducts and obstructive intratubular nephropathy. Acyclovir must always be infused slowly over at least 1 hour with adequate hydration."
-    },
-    {
-        "q": "A 58-year-old patient with non-small cell lung cancer is receiving Cisplatin chemotherapy. The nurse anticipates administering pre- and post-hydration with normal saline containing Mannitol and Magnesium. What is the explicit pharmacological goal of this regimen?",
-        "o": [
-            "To prevent allergic anaphylactoid degranulation in pulmonary vessels.",
-            "To maintain high renal tubular flow and chloride-rich luminal environment, which suppresses the conversion of cisplatin into its toxic aquated cation inside proximal tubular cells.",
-            "To acidify the urine and accelerate hepatic glucuronidation.",
-            "To prevent cisplatin from crossing the blood-brain barrier."
-        ],
-        "a": 1,
-        "t": "Oncology Nephrology / Cisplatin",
-        "e": "Cisplatin enters proximal tubular cells and is converted into a highly reactive, toxic aquated platinum complex in low-chloride intracellular environments. High chloride concentrations (provided by 0.9% normal saline hydration) suppress this intracellular hydration reaction. Saline and mannitol maintain brisk solute diuresis, reducing tubular contact time and preventing severe ATN and hypomagnesemia."
-    },
-    {
-        "q": "A hospitalized patient with hospital-acquired pneumonia is initiated on empiric intravenous Vancomycin and Piperacillin-Tazobactam (Zosyn). The clinical nurse specialist notes that this specific combination requires heightened vigilance for AKI compared to Vancomycin plus Cefepime. Why?",
-        "o": [
-            "Piperacillin-Tazobactam directly displaces vancomycin from protein binding, quadrupling free drug levels.",
-            "The synergistic combination of Vancomycin and Piperacillin-Tazobactam produces a markedly higher incidence of acute interstitial nephritis and synergistic tubular injury (up to 3- to 4-fold higher risk of AKI).",
-            "The two antibiotics chemically precipitate inside the IV tubing, creating microemboli.",
-            "Piperacillin-Tazobactam shuts down renal tubular secretion of creatinine without altering GFR."
-        ],
-        "a": 1,
-        "t": "Clinical Pharmacology / AKI Synergy",
-        "e": "Multiple randomized trials and large meta-analyses have demonstrated that co-administration of Vancomycin and Piperacillin-Tazobactam (VPT) significantly increases the incidence of AKI compared to Vancomycin plus Cefepime or Meropenem. The proposed mechanism involves overlapping subclinical proximal tubular toxicity and acute interstitial nephritis (AIN)."
-    },
-    {
-        "q": "A patient with type 2 diabetes on Dapagliflozin (Farxiga) presents to the ED with nausea, vomiting, abdominal pain, and tachypnea. Blood glucose is 168 mg/dL (mildly elevated), but the serum bicarbonate is 8 mEq/L, anion gap is 24 mEq/L, and serum beta-hydroxybutyrate is markedly elevated at 5.8 mmol/L. What is the renal tubular contribution to Euglycemic DKA (euDKA) in patients taking SGLT2 inhibitors?",
-        "o": [
-            "SGLT2 inhibitors cause complete renal shutoff of all ketoacid filtration.",
-            "SGLT2 inhibitors stimulate sodium-coupled monocarboxylate transporters, increasing tubular reabsorption of acetoacetate and beta-hydroxybutyrate, which prevents the urinary clearance of ketones.",
-            "SGLT2 inhibitors directly destroy pancreatic alpha cells.",
-            "SGLT2 inhibitors block insulin clearance by the proximal tubules."
-        ],
-        "a": 1,
-        "t": "Pharmacology / Renal Handling of Ketones",
-        "e": "SGLT2 inhibitors lower blood glucose by inducing glucosuria. However, the drop in circulating insulin combined with an increase in glucagon triggers lipolysis and ketogenesis. In the kidneys, SGLT2 inhibition alters electrical gradients and stimulates secondary transporters, enhancing the renal tubular reabsorption of acetoacetate and beta-hydroxybutyrate. This blunts the expected compensatory ketonuria, masking the severity of ketoacidosis."
-    },
-    {
-        "q": "An arterial blood gas on a patient with septic shock and persistent vomiting reveals: pH 7.38, PaCO2 40 mmHg, HCO3- 24 mEq/L, Na+ 142 mEq/L, Cl- 86 mEq/L. The Anion Gap is calculated as 32 mEq/L (Normal = 12). Using the Delta-Delta ratio [ΔAG / ΔHCO3- = (AG - 12) / (24 - HCO3-)], what mixed acid-base disorder is occurring?",
-        "o": [
-            "Pure High Anion Gap Metabolic Acidosis with normal compensation.",
-            "Mixed High Anion Gap Metabolic Acidosis (HAGMA) AND Metabolic Alkalosis.",
-            "Mixed High Anion Gap Metabolic Acidosis AND Normal Anion Gap Metabolic Acidosis.",
-            "Normal acid-base physiology because the pH, PaCO2, and HCO3- are within normal limits."
-        ],
-        "a": 1,
-        "t": "Advanced ABG / Delta-Delta Ratio",
-        "e": "Anion Gap = 142 - (86 + 24) = 32 mEq/L (High by 20 mEq/L). For every 1 mEq/L rise in AG above 12, serum HCO3- should drop by 1 mEq/L from 24. Here, the AG rose by 20 (32 - 12), so HCO3- should have dropped by 20 down to 4 mEq/L! Instead, the HCO3- is 24 mEq/L. The ΔAG / ΔHCO3- ratio is 20 / 0 (infinite, or > 2.0), definitively revealing a hidden concurrent Metabolic Alkalosis (from vomiting) superimposed on a severe HAGMA (lactic acidosis from sepsis)."
-    },
-    {
-        "q": "A patient with a normal anion gap metabolic acidosis (pH 7.26, HCO3- 14 mEq/L, Cl- 116 mEq/L) undergoes evaluation. The spot urine electrolytes are: Na+ 42 mEq/L, K+ 35 mEq/L, Cl- 22 mEq/L. Calculate the Urine Anion Gap [UAG = (Na+ + K+) - Cl-] and determine whether the acidosis is of renal or gastrointestinal origin.",
-        "o": [
-            "UAG is -55 mEq/L; indicates gastrointestinal bicarbonate loss (diarrhea).",
-            "UAG is +55 mEq/L (positive); indicates impaired renal ammonium excretion, confirming Distal (Type 1) Renal Tubular Acidosis.",
-            "UAG is 0 mEq/L; indicates normal physiological compensation.",
-            "UAG is +20 mEq/L; confirms laxative abuse."
-        ],
-        "a": 1,
-        "t": "Advanced Acid-Base / Urine Anion Gap",
-        "e": "UAG = (Na + K) - Cl = (42 + 35) - 22 = +55 mEq/L. Urinary ammonium (NH4+) is normally excreted with chloride (Cl-). In diarrhea, healthy kidneys excrete massive NH4+ and Cl-, making urinary Cl- far exceed (Na + K), producing a NEGATIVE UAG (typically -20 to -50). A POSITIVE UAG indicates that the kidneys are failing to secrete H+ and NH4+, confirming impaired distal renal acidification (Distal Type 1 RTA)."
-    },
-    {
-        "q": "A 66-year-old patient with acute decompensated heart failure is admitted with pulmonary edema, ejection fraction 20%, and rising creatinine from 1.1 to 2.4 mg/dL. Central venous pressure is 18 mmHg. According to the Ronco classification of Cardiorenal Syndrome (CRS), how is this clinical scenario classified?",
-        "o": [
-            "Cardiorenal Syndrome Type 1 (Acute Cardiorenal Syndrome)",
-            "Cardiorenal Syndrome Type 2 (Chronic Cardiorenal Syndrome)",
-            "Cardiorenal Syndrome Type 3 (Acute Renocardiac Syndrome)",
-            "Cardiorenal Syndrome Type 4 (Chronic Renocardiac Syndrome)"
-        ],
-        "a": 0,
-        "t": "Cardiorenal Syndrome / Classification",
-        "e": "Cardiorenal Syndrome Type 1 is characterized by acute cardiac decompensation (acute heart failure, cardiogenic shock) leading to acute kidney injury. The primary driver is renal venous congestion (high CVP transmitting back pressure to the renal veins, collapsing the glomerular transcapillary gradient) combined with reduced forward arterial perfusion."
-    },
-    {
-        "q": "A patient with Stage 3b CKD (eGFR 38 mL/min) is scheduled for an elective contrast-enhanced CT scan. The patient takes Metformin 1,000 mg PO BID. In accordance with American College of Radiology (ACR) and National Kidney Foundation (NKF) consensus guidelines, what is the correct protocol regarding Metformin?",
-        "o": ["Continue metformin without interruption as long as oral hydration is maintained.", "Withhold Metformin at the time of or prior to the contrast procedure, withhold it for 48 hours post-procedure, and reinstitute only after re-evaluating renal function and confirming stable eGFR.", "Double the metformin dose 24 hours prior to enhance lactate clearance.", "Administer IV sodium bicarbonate to prevent metformin from binding to contrast molecules."
-        ],
-        "a": 1,
-        "t": "Pharmacology / Patient Safety",
-        "e": "Metformin does not cause nephrotoxicity itself, but it is excreted 100% unchanged by the kidneys. If a patient with pre-existing CKD (eGFR < 45 or 60 mL/min) develops contrast-induced acute kidney injury, metformin rapidly accumulates to toxic levels, triggering fatal Metformin-Associated Lactic Acidosis (MALA). Metformin must be stopped at the time of procedure, held for 48 hours, and resumed only after normal renal function is reconfirmed."
-    },
-    {
-        "q": "An ICU patient with septic shock on high-dose norepinephrine and vasopressin requires renal replacement therapy. The intensivist chooses Sustained Low-Efficiency Dialysis (SLED) over standard intermittent hemodialysis (IHD). What are the mechanical characteristics and physiological benefits of SLED in hemodynamically unstable patients?",
-        "o": ["It uses rapid blood flow rates (500 mL/min) over 2 hours to minimize vascular access time.", "It operates at lower blood flow rates (150–200 mL/min) and lower dialysate flow rates (100–300 mL/min) over an extended duration (6–12 hours), providing slow, gentle solute clearance and ultrafiltration without causing hemodynamic instability.", "It eliminates the need for any vascular access by using peritoneal diffusion.", "It is run at a dialysate temperature of 39°C to induce systemic vasodilation."
-        ],
-        "a": 1,
-        "t": "Critical Care / SLED Mechanics",
-        "e": "SLED (hybrid therapy) uses conventional hemodialysis machines run over extended periods (6–12 hours) with lowered blood pump speeds and low dialysate flow rates. This achieves gradual fluid removal and steady solute reduction mimicking CRRT, preventing the sudden intravascular fluid shifts, rapid osmolar drops, and hypotension that occur with 3- to 4-hour intermittent hemodialysis."
-    },
-    {
-        "q": "A patient with severe uremia (BUN 145 mg/dL) develops progressive lethargy, confusion, and asterixis. Electroencephalography (EEG) is performed to differentiate uremic encephalopathy from non-convulsive status epilepticus. What classic, synchronous wave pattern is pathognomonic for metabolic/uremic encephalopathy?",
-        "o": ["Focal spike-and-wave discharges localized to the temporal lobes.", "Generalized, bilateral, synchronous high-voltage Triphasic Waves (slow waves with three distinct phases).", "Complete burst suppression pattern.", "Continuous polymorphic delta waves restricted to the frontal cortex."
-        ],
-        "a": 1,
-        "t": "Diagnostics / Uremic Encephalopathy",
-        "e": "Triphasic waves on EEG are the classic neurophysiological hallmark of metabolic and toxic encephalopathies, most famously uremic encephalopathy and hepatic encephalopathy. They consist of bilateral, frontally predominant, generalized synchronous slow-wave complexes with three phases, confirming severe cerebral metabolic dysfunction due to circulating neurotoxins."
-    },
-    {
-        "q": "A patient with acute tubular necrosis has a serum calcium of 6.5 mg/dL and a serum magnesium of 0.8 mg/dL. The nurse administers 2 grams of IV Calcium Gluconate, but repeat serum calcium 4 hours later remains severely depressed at 6.6 mg/dL with persistent muscle twitching. What is the biochemical rationale for why hypocalcemia is refractory to calcium repletion until hypomagnesemia is corrected?",
-        "o": ["Magnesium competitively blocks calcium uptake into bone trabeculae.", "Severe hypomagnesemia directly impairs both the release of Parathyroid Hormone (PTH) from the parathyroid glands AND induces target-organ resistance to circulating PTH in bone and kidneys.", "Magnesium accelerates renal calcium excretion via the loop of Henle.", "Calcium cannot bind to albumin in the absence of magnesium ions."
-        ],
-        "a": 1,
-        "t": "Electrolyte Physiology / Interdependence",
-        "e": "Magnesium is a mandatory intracellular cofactor for adenylate cyclase, which mediates PTH secretion from the parathyroid glands. Severe hypomagnesemia (< 1.0 mg/dL) paradoxically shuts down PTH release and causes peripheral end-organ resistance of bone to PTH. Consequently, hypocalcemia is clinically refractory to intravenous calcium until the magnesium deficit is fully replenished."
-    },
-    {
-        "q": "A patient presenting with acute Tumor Lysis Syndrome has an acute kidney injury, serum phosphate of 11.5 mg/dL, and serum calcium of 6.2 mg/dL. The patient is asymptomatic without ECG changes. The medical resident orders an intravenous infusion of 10% Calcium Gluconate. Why should the critical care nurse immediately challenge this order?",
-        "o": ["Calcium will precipitate ventricular tachycardia in the absence of digitalis.", "Administering exogenous calcium in the presence of severe hyperphosphatemia dramatically surges the Calcium x Phosphate product (> 70 mg²/dL²), causing rapid, widespread metastatic calcium phosphate precipitation in renal tubules, heart valves, and coronary arteries.", "Calcium converts all available circulating uric acid into insoluble urate crystals.", "Calcium shuts down proximal tubular bicarbonate reabsorption."
-        ],
-        "a": 1,
-        "t": "Clinical Decision Making / TLS",
-        "e": "In Tumor Lysis Syndrome, hypocalcemia is a secondary protective response to massive hyperphosphatemia. Administering IV calcium to an asymptomatic patient with marked hyperphosphatemia raises the Calcium-Phosphate product far above the critical 55–60 mg²/dL² threshold, triggering explosive crystallization of calcium phosphate throughout the renal parenchyma (worsening AKI) and cardiac conduction system. IV calcium is reserved strictly for life-threatening tetany or arrhythmias."
-    },
-    {
-        "q": "Under Stewart's modern physicochemical approach to acid-base interpretation, what is the Strong Ion Difference (SID), and why does rapid, massive infusion of 0.9% Normal Saline cause 'hyperchloremic metabolic acidosis'?",
-        "o": ["Normal Saline has an acidic pH of 5.5, which directly acidifies human plasma.", "Normal Saline delivers equal sodium and chloride concentrations (154 mEq/L each), yielding an SID of 0 mEq/L; infusing this lowers the normal plasma Strong Ion Difference (normally 40–42 mEq/L), which forces water to dissociate into free hydrogen ions (H+) to maintain electrical neutrality, producing acidosis.", "Normal Saline causes direct mitochondrial uncoupling in the renal cortex.", "Normal Saline triggers immediate renal bicarbonate secretion in the collecting ducts."
-        ],
-        "a": 1,
-        "t": "Advanced Acid-Base / Stewart's Approach",
-        "e": "Stewart's equation states that plasma pH is determined by the balance of strong cations and strong anions: Apparent Strong Ion Difference (SIDa) = $([Na^+] + [K^+] + [Ca^{2+}] + [Mg^{2+}]) - ([Cl^-] + [\text{Lactate}^-])$. Normal plasma SID is ~40 mEq/L. Normal Saline contains 154 mEq/L Na and 154 mEq/L Cl (SID = 0). Infusing massive volumes of normal saline floods the blood with chloride, narrowing the plasma SID. To maintain electrochemical neutrality, water molecules ($H_2O$) dissociate into $H^+$ and $OH^-$; the newly generated $H^+$ causes dilutional hyperchloremic acidosis."
-    },
-    {
-        "q": "During Continuous Renal Replacement Therapy (CRRT), the nurse assesses the 'Sieving Coefficient' ($S_c$) of various solutes across the synthetic membrane. If a drug has a Sieving Coefficient of 0.85, what does this indicate regarding its clearance during hemofiltration?",
-        "o": ["The drug is completely bound to albumin and will not be cleared across the membrane.", "85% of the drug present in plasma water passes freely across the hemofilter membrane into the ultrafiltrate via convective transport, requiring substantial replacement dosing.", "The drug precipitates on the membrane fibers and clots the circuit.", "15% of the drug is filtered while 85% is metabolized by the filter."
-        ],
-        "a": 1,
-        "t": "Critical Care / CRRT Pharmacokinetics",
-        "e": "The Sieving Coefficient ($S_c$) represents the permeability of a membrane to a specific solute, calculated as the concentration of solute in the ultrafiltrate divided by its concentration in the pre-filter plasma water ($C_{UF} / C_{plasma}$). An $S_c$ of 1.0 means the molecule passes completely unrestricted (e.g., urea, creatinine). An $S_c$ of 0.85 means 85% of the unbound drug passes into the waste bag, mandating aggressive supplemental antibiotic/medication dosing."
-    },
-    {
-        "q": "A pregnant woman at 34 weeks gestation with severe abruptio placentae develops massive disseminated intravascular coagulation (DIC), severe hemodynamic collapse, and complete anuria. Over the next 4 weeks, she remains completely anuric. Contrast-enhanced CT reveals bilateral, calcified, hypodense non-enhancing renal cortices with intact, perfused medullas ('tramline calcification'). What irreversible pathological entity has occurred?",
-        "o": ["Acute Tubular Necrosis with delayed recovery", "Renal Cortical Necrosis (RCN)", "Bilateral Renal Infarction secondary to embolic shower", "Xanthogranulomatous pyelonephritis"
-        ],
-        "a": 1,
-        "t": "Renal Pathology / Obstetric AKI",
-        "e": "Renal Cortical Necrosis (RCN) is an uncommon, catastrophic form of ischemic necrosis caused by profound microvascular thrombosis and end-arteriole vasospasm of the renal cortex, classically associated with severe obstetric catastrophes (placental abruption, septic abortion, amniotic fluid embolism) and DIC. Unlike ATN, which regenerates, RCN destroys the glomeruli and cortical architecture permanently, resulting in irreversible anuric ESRD and delayed cortical 'tramline' calcification on imaging."
-    },
+const rawQuestions = [
+    // --- SECTION 1: CRITICAL CARE NEPHROLOGY, ACID-BASE & TOXICOLOGY (Q1 - Q20) ---
+    {"q":"A 42-year-old comatose patient is admitted with suspected toxic ingestion. Lab results show: Serum Na+ 140 mEq/L, K+ 4.8 mEq/L, Cl- 98 mEq/L, HCO3- 10 mEq/L, BUN 28 mg/dL, Glucose 90 mg/dL, Serum Osmolality 335 mOsm/kg. Urinalysis reveals envelope-shaped calcium oxalate crystals. What is the calculated Osmolal Gap, and what is the definitive antidote before emergency hemodialysis?","o":["Osmolal gap is 40 mOsm/kg; administer Intravenous Fomepizole immediately.","Osmolal gap is 12 mOsm/kg; administer Intravenous Naloxone bolus.","Osmolal gap is 25 mOsm/kg; administer Intravenous Methylene Blue.","Osmolal gap is 8 mOsm/kg; administer Sodium Bicarbonate infusion alone."],"a":0,"t":"Toxicology / Critical Care","e":"Calculated Osmolality = 2(Na) + (Glucose/18) + (BUN/2.8) = 280 + 5 + 10 = 295 mOsm/kg. Osmolal Gap = 335 - 295 = 40 mOsm/kg (>10 is elevated). High gap acidosis plus oxalate crystals confirms Ethylene Glycol ingestion. Fomepizole blocks alcohol dehydrogenase, stopping toxic metabolite formation."},
+    {"q":"A patient on long-term Lithium therapy presents with polyuria (6.5 L/day), polydipsia, serum sodium 152 mEq/L, and urine osmolality 140 mOsm/kg that fails to concentrate after exogenous vasopressin (DDAVP). Which diuretic is the specific drug of choice to block lithium uptake into collecting duct principal cells?","o":["Spironolactone","Amiloride","Triamterene","Eplerenone"],"a":1,"t":"Nephrogenic DI / Pharmacology","e":"Lithium enters principal cells through epithelial sodium channels (ENaC), downregulating Aquaporin-2 water channels and causing Nephrogenic DI. Amiloride selectively blocks ENaC, preventing lithium uptake into principal cells."},
+    {"q":"A patient with candidiasis receives IV Amphotericin B deoxycholate. Within 48 hours, the patient develops hypokalemia (2.4 mEq/L), hypomagnesemia (1.2 mg/dL), and rising creatinine. What is the mechanism of nephrotoxicity, and which pre-infusion nursing strategy mitigates it?","o":["Proximal tubular necrosis; administer loop diuretics 30 minutes prior.","Afferent arteriolar vasoconstriction and creation of tubular membrane pores; pre-hydrate with 500–1000 mL 0.9% Normal Saline.","Crystal precipitation; alkalinize urine with sodium bicarbonate.","Selective efferent arteriolar vasodilation; infuse pre-treatment vasopressin."],"a":1,"t":"Nephrotoxicity / Amphotericin","e":"Amphotericin B creates non-specific pores in renal cell membranes (wasting K+ and Mg2+) and induces severe afferent arteriolar vasoconstriction. Pre-loading with Normal Saline blunts tubuloglomerular feedback, preserving renal blood flow."},
+    {"q":"An HIV-positive patient on Tenofovir Disoproxil Fumarate (TDF) presents with bone pain, weakness, and elevated creatinine. Urinalysis reveals glucosuria with normal blood glucose (92 mg/dL), aminoaciduria, hypophosphatemia, and hyperuricosuria. What specific tubular syndrome has TDF induced?","o":["Bartter Syndrome","Gitelman Syndrome","Renal Fanconi Syndrome","Liddle Syndrome"],"a":2,"t":"Drug-Induced Tubulopathy / Fanconi","e":"Tenofovir causes mitochondrial toxicity in proximal tubular cells, impairing the sodium-dependent reabsorption of glucose, amino acids, uric acid, and phosphate (Fanconi Syndrome). Renal phosphate wasting causes osteomalacia."},
+    {"q":"A patient receives high-dose IV Methotrexate (12 g/m²). To prevent acute crystal nephropathy, which mandatory supportive protocol must the oncology nurse execute?","o":["Urinary acidification using ascorbic acid to target urine pH < 5.0.","Hyperhydration with IV Sodium Bicarbonate to maintain urine output > 100 mL/hr and urine pH strictly >= 7.0.","Co-administration of high-dose probenecid.","Fluid restriction to prevent hemodilution."],"a":1,"t":"Oncology Nephrology / HD-MTX","e":"Methotrexate precipitates in acidic tubular fluid. Alkalinizing the urine to pH >= 7.0 with sodium bicarbonate increases methotrexate solubility by over five-fold, preventing obstructive intratubular crystal precipitation."},
+    {"q":"A patient receives an IV bolus of Acyclovir pushed over 5 minutes. Six hours later, the patient is oliguric, and urinalysis displays birefringent, needle-shaped crystals. What caused this sudden renal failure?","o":["Acute allergic interstitial nephritis.","Intratubular crystal precipitation of acyclovir due to rapid infusion exceeding solubility.","Direct immunological destruction of podocytes.","Immune-complex glomerulonephritis."],"a":1,"t":"Nephrotoxic Pharmacology / Acyclovir","e":"Acyclovir has low aqueous solubility in urine. Rapid IV push saturates tubular fluid, causing immediate crystal precipitation in collecting ducts and obstructive nephropathy. It must be infused slowly over >= 1 hour with IV hydration."},
+    {"q":"A patient receives Cisplatin chemotherapy. The nurse administers pre- and post-hydration with normal saline containing Mannitol and Magnesium. What is the explicit pharmacological goal of this hydration protocol?","o":["To prevent allergic anaphylactoid reactions.","To maintain high tubular flow and chloride-rich luminal environment, suppressing conversion of cisplatin into its toxic aquated form.","To acidify the urine and accelerate hepatic glucuronidation.","To prevent cisplatin from crossing the blood-brain barrier."],"a":1,"t":"Oncology Nephrology / Cisplatin","e":"Cisplatin converts into a reactive aquated toxic metabolite in low-chloride intracellular environments. High chloride delivery from saline suppresses this reaction, and mannitol maintains high tubular flow to minimize contact time."},
+    {"q":"Why does the co-administration of Vancomycin and Piperacillin-Tazobactam (Zosyn) require heightened vigilance for AKI compared to Vancomycin plus Cefepime?","o":["Piperacillin displaces vancomycin from protein binding, quadrupling free drug levels.","The combination produces synergistic proximal tubular injury and acute interstitial nephritis, increasing AKI risk up to 3- to 4-fold.","The two antibiotics chemically precipitate inside the IV tubing.","Piperacillin shuts down tubular secretion of creatinine without altering GFR."],"a":1,"t":"Clinical Pharmacology / AKI Synergy","e":"Extensive clinical trials confirm that Vancomycin plus Piperacillin-Tazobactam exhibits synergistic nephrotoxicity, producing significantly higher rates of AKI than Vancomycin combined with Cefepime or Meropenem."},
+    {"q":"A type 2 diabetic patient on Dapagliflozin presents with nausea, vomiting, blood glucose 168 mg/dL, serum bicarbonate 8 mEq/L, and beta-hydroxybutyrate 5.8 mmol/L. What is the renal contribution to Euglycemic DKA in SGLT2 inhibitor therapy?","o":["SGLT2 inhibitors completely shut off all ketoacid filtration.","SGLT2 inhibitors increase tubular reabsorption of acetoacetate and beta-hydroxybutyrate, blunting compensatory ketonuria.","SGLT2 inhibitors directly destroy pancreatic alpha cells.","SGLT2 inhibitors block insulin clearance by proximal tubules."],"a":1,"t":"Pharmacology / Renal Handling of Ketones","e":"SGLT2 inhibitors trigger ketogenesis while enhancing renal tubular reabsorption of acetoacetate and beta-hydroxybutyrate, reducing urinary ketone clearance and masking ketoacidosis severity despite near-normal blood glucose."},
+    {"q":"An ABG reveals: pH 7.38, PaCO2 40 mmHg, HCO3- 24 mEq/L, Na+ 142 mEq/L, Cl- 86 mEq/L. Anion Gap is 32 mEq/L (Normal = 12). Using the Delta-Delta ratio, what mixed acid-base disorder is present?","o":["Pure High Anion Gap Metabolic Acidosis with normal compensation.","Mixed High Anion Gap Metabolic Acidosis AND Metabolic Alkalosis.","Mixed High Anion Gap Metabolic Acidosis AND Normal Anion Gap Metabolic Acidosis.","Normal acid-base balance."],"a":1,"t":"Advanced ABG / Delta-Delta Ratio","e":"Anion gap is elevated by 20 (32 - 12). If pure HAGMA, HCO3- should drop by 20 (from 24 to 4). Because HCO3- is 24, a concurrent metabolic alkalosis is retaining bicarbonate, normalizing pH and HCO3- despite severe acidosis."},
+    {"q":"A patient with non-anion gap acidosis (pH 7.26, HCO3- 14, Cl- 116) has spot urine electrolytes: Na+ 42, K+ 35, Cl- 22 mEq/L. Calculate the Urine Anion Gap [UAG = (Na + K) - Cl] and identify the cause.","o":["UAG is -55 mEq/L; indicates gastrointestinal diarrhea.","UAG is +55 mEq/L; indicates impaired renal ammonium excretion, confirming Distal (Type 1) RTA.","UAG is 0 mEq/L; indicates normal compensation.","UAG is +20 mEq/L; confirms laxative abuse."],"a":1,"t":"Acid-Base / Urine Anion Gap","e":"UAG = (42 + 35) - 22 = +55 mEq/L. In diarrhea, kidneys excrete excess NH4+ with Cl-, making urinary Cl- high and UAG negative. A positive UAG indicates failure of distal tubular H+/NH4+ excretion, confirming Distal Type 1 RTA."},
+    {"q":"A heart failure patient (EF 20%, CVP 18 mmHg) develops acute pulmonary edema and creatinine rises from 1.1 to 2.4 mg/dL. According to the Ronco classification, what Cardiorenal Syndrome (CRS) type is this?","o":["Cardiorenal Syndrome Type 1 (Acute Cardiorenal)","Cardiorenal Syndrome Type 2 (Chronic Cardiorenal)","Cardiorenal Syndrome Type 3 (Acute Renocardiac)","Cardiorenal Syndrome Type 4 (Chronic Renocardiac)"],"a":0,"t":"Cardiorenal Syndrome","e":"Type 1 CRS is acute cardiac decompensation producing acute kidney injury, driven primarily by elevated renal venous pressure (high CVP) and reduced forward renal perfusion."},
+    {"q":"A patient with CKD Stage 3b (eGFR 38 mL/min) on Metformin is scheduled for contrast CT. In accordance with ACR/NKF consensus guidelines, what is the protocol for Metformin?","o":["Continue metformin without interruption.","Withhold Metformin prior to procedure, hold for 48 hours post-procedure, and restart only after confirming stable renal function.","Double the dose 24 hours prior to scan.","Administer IV sodium bicarbonate with metformin."],"a":1,"t":"Pharmacology / Patient Safety","e":"Metformin is renally cleared. If contrast-induced AKI occurs, metformin accumulates, triggering fatal lactic acidosis. It must be held at the time of the scan, paused for 48 hours, and resumed only after stable eGFR is verified."},
+    {"q":"An unstable ICU patient on norepinephrine receives Sustained Low-Efficiency Dialysis (SLED). What are the mechanical characteristics of SLED compared to intermittent hemodialysis (IHD)?","o":["High blood flow (500 mL/min) over 2 hours.","Lower blood flow (150–200 mL/min) and lower dialysate flow (100–300 mL/min) over 6–12 hours, providing gentle clearance without hemodynamic collapse.","Peritoneal access without vascular cannulation.","Dialysate temperature of 39°C to induce vasodilation."],"a":1,"t":"Critical Care / SLED Mechanics","e":"SLED uses standard machines over extended periods (6–12 hours) with lower blood and dialysate flow rates, providing gradual ultrafiltration and solute removal suitable for hemodynamically unstable patients."},
+    {"q":"A patient with severe uremia (BUN 145 mg/dL) develops lethargy and asterixis. EEG is performed. What waveform pattern is pathognomonic for metabolic/uremic encephalopathy?","o":["Focal spike-and-wave discharges in temporal lobes.","Bilateral, synchronous high-voltage Triphasic Waves.","Complete burst suppression pattern.","Continuous polymorphic delta waves."],"a":1,"t":"Diagnostics / Uremic Encephalopathy","e":"Generalized, synchronous, frontally predominant triphasic slow waves on EEG are the classic electrophysiological sign of severe metabolic/uremic encephalopathy."},
+    {"q":"A patient with ATN has calcium 6.5 mg/dL and magnesium 0.8 mg/dL. Following 2g IV Calcium Gluconate, serum calcium remains 6.6 mg/dL with persistent tetany. Why is hypocalcemia refractory until magnesium is corrected?","o":["Magnesium blocks calcium uptake into bone.","Severe hypomagnesemia impairs Parathyroid Hormone (PTH) release and causes end-organ resistance to circulating PTH.","Magnesium accelerates renal calcium excretion.","Calcium cannot bind albumin without magnesium."],"a":1,"t":"Electrolyte Physiology","e":"Magnesium is required by adenylate cyclase for PTH release. Hypomagnesemia suppresses PTH secretion and induces skeletal resistance to PTH, making hypocalcemia refractory until magnesium is replenished."},
+    {"q":"A Tumor Lysis Syndrome patient has phosphate 11.5 mg/dL and calcium 6.2 mg/dL without ECG changes. The resident orders IV Calcium Gluconate. Why should the nurse challenge this order?","o":["Calcium precipitates ventricular tachycardia.","IV calcium with marked hyperphosphatemia surges the Ca x P product (>70 mg²/dL²), causing fatal metastatic calcium phosphate precipitation in vessels and kidneys.","Calcium converts uric acid into insoluble stones.","Calcium blocks tubular bicarbonate reabsorption."],"a":1,"t":"Clinical Decision Making / TLS","e":"Administering IV calcium during severe hyperphosphatemia elevates the Ca x P product above 55–60 mg²/dL², causing widespread calcium phosphate crystal precipitation in heart valves, myocardium, and renal tubules."},
+    {"q":"Under Stewart's physicochemical approach, why does rapid massive infusion of 0.9% Normal Saline cause metabolic acidosis?","o":["Normal Saline has an intrinsic pH of 5.5.","Normal Saline delivers equal Na+ and Cl- (154 mEq/L each), lowering the plasma Strong Ion Difference (SID) from 40 to narrower levels, forcing water dissociation into H+ ions.","Normal Saline uncouples mitochondrial phosphorylation.","Normal Saline triggers renal bicarbonate secretion."],"a":1,"t":"Acid-Base / Stewart's Approach","e":"Plasma Strong Ion Difference (SID) is normally ~40 mEq/L. Normal Saline has an SID of 0 (154 Na - 154 Cl). Infusing large volumes narrows plasma SID, forcing water molecules to dissociate into H+ to maintain neutrality, causing acidosis."},
+    {"q":"During CRRT hemofiltration, a drug has a Sieving Coefficient (Sc) of 0.85. What does this indicate regarding drug clearance?","o":["The drug is 100% protein bound and cannot cross the membrane.","85% of the unbound drug in plasma water freely crosses the membrane into ultrafiltrate, requiring substantial supplemental dosing.","The drug precipitates and clots the filter.","15% of the drug is filtered and 85% is metabolized."],"a":1,"t":"Critical Care / CRRT Pharmacokinetics","e":"A Sieving Coefficient of 0.85 means 85% of the drug concentration in plasma water passes through the filter membrane into the effluent, mandating replacement dosing to prevent subtherapeutic failure."},
+    {"q":"A pregnant patient with abruptio placentae and DIC develops complete anuria lasting 4 weeks. CT reveals bilateral non-enhancing renal cortices with intact medullas ('tramline calcification'). What irreversible entity has occurred?","o":["Acute Tubular Necrosis with delayed recovery","Renal Cortical Necrosis (RCN)","Bilateral Renal Infarction","Xanthogranulomatous pyelonephritis"],"a":1,"t":"Renal Pathology / Obstetric AKI","e":"Renal Cortical Necrosis is ischemic necrosis of the entire renal cortex caused by microvascular thrombosis and end-organ vasospasm in catastrophic obstetric emergencies, causing irreversible anuric ESRD and cortical calcification."},
 
-    // ==========================================
     // --- SECTION 2: GLOMERULAR, COMPLEMENTOPATHIES & MICROANGIOPATHIES (Q21 - Q40) ---
-    // ==========================================
-    {
-        "q": "A 34-year-old female presents with acute renal failure, microangiopathic hemolytic anemia with schistocytes on peripheral smear, thrombocytopenia (platelets 18,000/μL), normal coagulation parameters (PT/INR and aPTT normal), and mild neurological confusion. Plasma testing confirms an ADAMTS13 activity level of 68% (Normal > 60%). Shiga toxin assays are negative. What is the diagnosis and the targeted therapeutic monoclonal antibody?",
-        "o": [
-            "Thrombotic Thrombocytopenic Purpura (TTP); treat with plasma exchange alone.",
-            "Atypical Hemolytic Uremic Syndrome (aHUS); initiate Eculizumab (anti-C5 terminal complement inhibitor).",
-            "Disseminated Intravascular Coagulation (DIC); administer Fresh Frozen Plasma and cryoprecipitate.",
-            "Immune Thrombocytopenic Purpura (ITP); treat with IVIG."
-        ],
-        "a": 1,
-        "t": "Thrombotic Microangiopathies / aHUS",
-        "e": "TTP and aHUS are clinical look-alikes. However, an ADAMTS13 activity level > 10% definitively RULES OUT TTP (which requires ADAMTS13 < 10%). Atypical HUS (aHUS) is a genetic disorder of uncontrolled, alternative complement activation causing diffuse endothelial damage and microvascular thrombosis. Eculizumab (or Ravulizumab) is a humanized monoclonal antibody that binds to complement protein C5, stopping terminal membrane attack complex (C5b-9) assembly and saving the kidneys."
-    },
-    {
-        "q": "A 19-year-old patient presents with gross hematuria, low-grade proteinuria, and progressive renal impairment. Serum complement C3 is profoundly depressed (< 20 mg/dL), whereas C4 is completely normal. Laboratory testing confirms the presence of circulating 'C3 Nephritic Factor' (C3NeF) autoantibodies. What is the pathophysiological role of C3NeF in Dense Deposit Disease (DDD)?",
-        "o": ["It directly lyses glomerular podocytes via Fc receptor activation.", "It is an IgG autoantibody that binds to and stabilizes the alternative pathway C3 convertase (C3bBb), preventing its enzymatic inactivation by Factor H and driving continuous, fluid-phase consumption of C3.", "It inhibits the classical complement pathway at the level of C1q.", "It binds to the glomerular basement membrane, creating linear IgG deposits."
-        ],
-        "a": 1,
-        "t": "Glomerular Disease / C3 Glomerulopathy",
-        "e": "Dense Deposit Disease (formerly MPGN Type II) is a form of C3 Glomerulopathy. C3 Nephritic Factor (C3NeF) is an autoantibody directed against C3bBb (the alternative complement pathway C3 convertase). C3NeF binds and stabilizes C3bBb, prolonging its half-life and preventing Factor H from breaking it down. This leads to continuous, uncontrolled, run-away cleavage of C3, marked hypocomplementemia (isolated low C3), and dense intramembranous ribbon-like osmophilic deposits in the GBM."
-    },
-    {
-        "q": "A 52-year-old patient with chronic, untreated Hepatitis C infection presents with palpable purpura on the lower extremities, symmetric polyarthralgias, and hematuria with proteinuria. Laboratory testing reveals an elevated Rheumatoid Factor (RF), markedly low complement C4 with normal C3, and precipitation of immunoglobulins when serum is cooled to 4°C that redissolve upon warming. Renal biopsy confirms membranoproliferative glomerulonephritis. What is this syndrome?",
-        "o": ["Systemic Lupus Erythematosus", "Type II Mixed Cryoglobulinemia", "Granulomatosis with Polyangiitis", "Henoch-Schönlein Purpura"
-        ],
-        "a": 1,
-        "t": "Glomerular Pathology / Cryoglobulinemia",
-        "e": "Mixed Cryoglobulinemia (Type II) is strongly associated with chronic Hepatitis C virus (HCV) infection (>80% of cases). It involves monoclonal IgM antibodies with Rheumatoid Factor activity directed against the Fc portion of polyclonal IgG. These cold-precipitable immune complexes deposit in small-to-medium vessels, causing Meltzer's triad (purpura, arthralgias, weakness) and renal immune-complex MPGN. Characteristically, serum C4 is profoundly suppressed."
-    },
-    {
-        "q": "A 64-year-old male presents with acute pulmonary-renal syndrome: massive hemoptysis, bilateral diffuse alveolar infiltrates, microscopic hematuria with red cell casts, and serum creatinine 4.5 mg/dL. Perinuclear anti-neutrophil cytoplasmic antibodies (p-ANCA / anti-myeloperoxidase [anti-MPO]) are positive. Renal biopsy shows a pauci-immune necrotizing crescentic glomerulonephritis. There is NO history of asthma, upper airway granulomas, or allergic rhinitis. Diagnosis?",
-        "o": ["Granulomatosis with Polyangiitis (GPA)", "Microscopic Polyangiitis (MPA)", "Eosinophilic Granulomatosis with Polyangiitis (EGPA / Churg-Strauss)", "Anti-GBM disease"
-        ],
-        "a": 1,
-        "t": "Systemic Vasculitis / MPA",
-        "e": "Microscopic Polyangiitis (MPA) is a systemic necrotizing small-vessel vasculitis that lacks granulomatous inflammation (distinguishing it from GPA) and lacks eosinophilia/asthma (distinguishing it from EGPA). It classically presents as pulmonary-renal syndrome (alveolar hemorrhage + RPGN), is strongly linked to p-ANCA (anti-MPO), and displays pauci-immune (lack of immune complexes or complement) crescentic glomerulonephritis on biopsy."
-    },
-    {
-        "q": "A 28-year-old patient who suffered end-stage renal disease secondary to severe Anti-Glomerular Basement Membrane (Anti-GBM) Disease 3 years ago is being evaluated for kidney transplantation. What is the mandatory immunological criterion required before this patient can safely undergo renal allograft transplantation?",
-        "o": ["Anti-GBM antibody titers must be reduced by at least 50% compared to baseline.", "Circulating anti-GBM antibodies must remain completely undetectable by ELISA for an absolute minimum of 6 to 12 months prior to transplantation.", "The patient must complete 20 consecutive sessions of prophylactic plasma exchange.", "Transplantation can proceed immediately without checking titers as long as Tacrolimus is used."
-        ],
-        "a": 1,
-        "t": "Transplant Immunology / Anti-GBM",
-        "e": "If a kidney transplant is performed while circulating anti-alpha-3 Type IV collagen antibodies are still present in recipient plasma, the antibodies will instantly attack the donor kidney, causing rapid recurrence of hyperacute/accelerated anti-GBM crescentic glomerulonephritis and graft loss. Guidelines strictly mandate that anti-GBM titers must be confirmed completely undetectable for at least 6–12 months prior to listing for transplantation."
-    },
-    {
-        "q": "A 68-year-old patient with multiple myeloma presents with acute oliguric renal failure following a course of dehydration. Urinalysis reveals 1+ albumin on dipstick, but a 24-hour urine protein collection reveals 8.5 grams of total protein. Renal biopsy demonstrates fractured, polychromatic, crystalline tubular casts surrounded by multinucleated giant cells and an intense inflammatory reaction. What is this classic nephropathic entity?",
-        "o": ["Amyloid light-chain (AL) glomerulopathy", "Light Chain Cast Nephropathy ('Myeloma Kidney')", "Acute tubular necrosis from hypercalcemia", "Monoclonal immunoglobulin deposition disease"
-        ],
-        "a": 1,
-        "t": "Monoclonal Gammopathies / Cast Nephropathy",
-        "e": "In Myeloma Kidney (Light Chain Cast Nephropathy), excess monoclonal free light chains (Bence Jones proteins) filtered by the glomerulus overwhelm the endocytic reabsorptive capacity of the proximal tubule. The light chains pass into the distal tubule and coprecipitate with Tamm-Horsfall mucoprotein (uromodulin), forming rigid, crystalline, fractured tubular casts that incite a foreign-body multinucleated giant cell reaction, occluding the lumens."
-    },
-    {
-        "q": "A 60-year-old patient with mild monoclonal IgG kappa paraproteinemia on serum protein electrophoresis (SPEP) presents with microscopic hematuria, hypertension, and nephrotic-range proteinuria. Bone marrow biopsy confirms only 4% plasma cells, ruling out symptomatic multiple myeloma or smoldering myeloma. However, renal biopsy confirms monoclonal light-chain deposition disease. How is this clinical spectrum designated?",
-        "o": ["Monoclonal Gammopathy of Undetermined Significance (MGUS)", "Monoclonal Gammopathy of Renal Significance (MGRS)", "Waldenström's Macroglobulinemia", "Primary AL Amyloidosis"
-        ],
-        "a": 1,
-        "t": "Nephrology / MGRS",
-        "e": "Monoclonal Gammopathy of Renal Significance (MGRS) is an umbrella term established by the International Kidney and Monoclonal Gammopathy Research Group. It describes patients with clonal B-cell or plasma cell proliferations that do NOT meet hematologic criteria for active multiple myeloma or lymphoma, but whose secreted monoclonal immunoglobulins cause direct, life-threatening renal damage (amyloidosis, MIDD, C3G, cryoglobulinemia). Clone-directed therapy is mandatory."
-    },
-    {
-        "q": "A 70-year-old male with long-standing rheumatoid arthritis presents with progressive anasarca, macroglossia, hepatosplenomegaly, and heavy proteinuria (9 g/24 hr). Renal biopsy shows expansion of the mesangium by amorphous, acellular, eosinophilic material that stains positive with Congo Red. Under polarized microscopy, what classic optical characteristic confirms the diagnosis of Renal Amyloidosis?",
-        "o": ["Bright golden-yellow luminescence", "Brilliant Apple-Green Birefringence", "Linear blue-violet refraction", "Complete dark extinction with no refraction"
-        ],
-        "a": 1,
-        "t": "Renal Pathology / Amyloidosis",
-        "e": "Amyloid fibrils possess a unique beta-pleated sheet tertiary protein structure. When stained with the diazo dye Congo Red, amyloid molecules bind the dye in a parallel, aligned orientation. Under cross-polarized light, this alignment causes anomalous optical dispersion, producing the pathognomonic 'apple-green birefringence', confirming amyloid deposition (either AL from plasma cell dyscrasias or AA from chronic inflammatory diseases like RA)."
-    },
-    {
-        "q": "A 56-year-old female presents with hematuria, non-nephrotic proteinuria, and renal failure. Renal biopsy demonstrates mesangial and capillary wall deposits composed of straight, non-branching, randomly arranged microfibrils measuring 16 to 24 nm in diameter. The specimen is Congo Red NEGATIVE. Immunohistochemistry is strongly, diffusely positive for DNAJB9. What is the definitive diagnosis?",
-        "o": ["Renal Amyloidosis", "Immunotactoid Glomerulopathy", "Fibrillary Glomerulonephritis (FGN)", "Dense Deposit Disease"
-        ],
-        "a": 2,
-        "t": "Renal Pathology / Fibrillary GN",
-        "e": "Fibrillary Glomerulonephritis (FGN) is a distinct glomerular entity characterized by randomly arranged, non-branching fibrils that are larger than amyloid (16–24 nm vs. 7–10 nm for amyloid) and fail to stain with Congo red. In 2018, DNAJB9 (a cochaperone protein) was identified as a 98% sensitive and 99% specific immunohistochemical biomarker for FGN, revolutionizing its diagnostic accuracy."
-    },
-    {
-        "q": "In evaluating a patient with biopsy-proven Focal Segmental Glomerulosclerosis (FSGS), the pathologist classifies the disease according to the Columbia Classification system. Which histological variant is associated with the highest rate of complete remission with corticosteroids and the most favorable long-term renal survival?",
-        "o": ["Collapsing variant", "Tip lesion variant (lesions involving the tubular pole of the glomerulus)", "Perihilar variant", "Cellular variant"
-        ],
-        "a": 1,
-        "t": "Glomerular Pathology / FSGS Variants",
-        "e": "The Columbia classification divides FSGS into 5 histological variants: Collapsing, Tip, Cellular, Perihilar, and Not Otherwise Specified (NOS). The Tip Lesion variant (defined by segmental lesions involving the outer 25% of the glomerular tuft adjacent to the origin of the proximal tubule) has the most favorable clinical course, resembling Minimal Change Disease with high responsiveness to corticosteroids and low progression to ESRD."
-    },
-    {
-        "q": "A patient with long-standing poorly controlled Type 1 Diabetes Mellitus undergoes a renal biopsy for progressive nephrotic syndrome. The light microscopy demonstrates marked nodular intercapillary glomerulosclerosis composed of acellular, eosinophilic, laminated hyaline material surrounded by peripheral compressed capillaries. What are these pathognomonic diagnostic nodules called?",
-        "o": ["Wire-loop lesions", "Kimmelstiel-Wilson nodules", "Crescentic epithelial fibrocellular rings", "Hyaline microthrombi"
-        ],
-        "a": 1,
-        "t": "Diabetic Nephropathy / Histopathology",
-        "e": "Kimmelstiel-Wilson (KW) nodules are the pathognomonic hallmark of advanced Nodular Diabetic Glomerulosclerosis (Class III). They consist of round, laminated, periodic acid-Schiff (PAS)-positive, acellular mesangial matrix nodules that expand and compress the adjacent glomerular capillary lumens. In diabetes, arteriolar hyalinosis characteristically involves BOTH the afferent and efferent arterioles."
-    },
-    {
-        "q": "A patient with suspected chronic immune-complex glomerulonephritis has a renal biopsy displaying marked capillary wall thickening and mesangial cellular proliferation. Silver methenamine staining shows circumferential interposition of mesangial cell cytoplasm into the peripheral capillary wall, producing a distinct 'Double Contour' or 'Tram-Track' appearance of the GBM. What pathology is this?",
-        "o": ["Membranous Nephropathy", "Membranoproliferative Glomerulonephritis (MPGN)", "Minimal Change Disease", "Crescentic Glomerulonephritis"
-        ],
-        "a": 1,
-        "t": "Glomerular Pathology / MPGN",
-        "e": "The 'tram-track' or double-contour appearance is the classic histopathological hallmark of Membranoproliferative Glomerulonephritis (MPGN). Subendothelial immune-complex or complement deposits trigger mesangial cells to extend their cytoplasmic processes circumferentially around the capillary loop (mesangial interposition), splitting the basement membrane and laying down a second neo-membrane beneath the endothelial cell."
-    },
-    {
-        "q": "A 9-year-old child was diagnosed with Acute Post-Streptococcal Glomerulonephritis (PSGN) 6 weeks ago. The mother returns to the clinic highly anxious because the child's routine urinalysis still demonstrates persistent microscopic hematuria (5–10 RBCs/hpf), although blood pressure, serum creatinine, and C3 complement levels have completely normalized. What is the expected physiological timeline for recovery?",
-        "o": ["This confirms treatment failure; the child must be started on high-dose cyclophosphamide immediately.", "Microscopic hematuria is expected to persist benignly for up to 1 to 2 years following acute PSGN; reassurance is appropriate as long as renal function and complement remain normal.", "Immediate repeat renal biopsy is indicated to rule out crescentic progression.", "The child must be placed on permanent bed rest until the urine is completely clear."
-        ],
-        "a": 1,
-        "t": "Pediatric Nephrology / PSGN Prognosis",
-        "e": "The clinical resolution of PSGN follows a well-documented timeline: gross hematuria, edema, and hypertension resolve within 1–2 weeks; serum creatinine normalizes in 3–4 weeks; and serum C3 complement normalizes within 6–8 weeks (if low > 8 weeks, suspect MPGN/lupus). However, microscopic hematuria is notoriously indolent and typically takes 12 to 24 months to completely clear."
-    },
-    {
-        "q": "A patient with profound nephrotic syndrome secondary to focal segmental glomerulosclerosis has a spot urine specimen examined under polarized light microscopy. The nurse and physician observe numerous birefringent intra-epithelial and free-floating lipid droplets that exhibit a distinct, symmetrical 'Maltese Cross' pattern. What are these microscopic structures?",
-        "o": ["Uric acid bipyramidal crystals", "Oval Fat Bodies (Lipiduria / Degenerating Tubular Cells laden with cholesterol esters)", "Bacterial microcolonies", "Hyaline casts stained with eosin"
-        ],
-        "a": 1,
-        "t": "Urinalysis / Nephrotic Syndrome",
-        "e": "In nephrotic syndrome, high glomerular capillary permeability leads to filtration of circulating lipoproteins. Proximal tubular epithelial cells engulf the filtered cholesterol esters and neutral fats, becoming distended 'Oval Fat Bodies'. When these cells degenerate and shed into the urine (or form fatty casts), the liquid-crystalline cholesterol esters display brilliant, symmetrical 4-leafed 'Maltese Cross' birefringence under polarized light."
-    },
-    {
-        "q": "A 45-year-old male presents with purpuric papules on both lower legs, colicky abdominal pain with occult blood in stool, bilateral ankle arthralgias, and gross hematuria. Skin biopsy confirms leukocytoclastic vasculitis. Renal biopsy reveals mesangial proliferation with intense, dominant mesangial deposition of IgA and C3. What is the diagnosis?",
-        "o": ["Polyarteritis Nodosa", "Granulomatosis with Polyangiitis", "Henoch-Schönlein Purpura (IgA Vasculitis)", "Anti-GBM disease"
-        ],
-        "a": 2,
-        "t": "Systemic Vasculitis / IgA Vasculitis",
-        "e": "Henoch-Schönlein Purpura (HSP / IgA Vasculitis) is a systemic small-vessel leukocytoclastic vasculitis characterized by the classic tetrad of: (1) non-thrombocytopenic palpable purpura, (2) arthralgias, (3) gastrointestinal ischemia/colic, and (4) glomerulonephritis identical to IgA nephropathy (mesangial IgA deposition). While common and benign in young children, HSP in adults carries a significantly higher risk of progressive renal insufficiency."
-    },
-    {
-        "q": "A newborn infant is born with massive congenital nephrotic syndrome (severe anasarca, placenta enlarged to 30% of birth weight, heavy proteinuria at birth). Genetic testing confirms a homozygous mutation in the NPHS1 gene located on chromosome 19q13. What critical podocyte structural protein does NPHS1 encode?",
-        "o": ["Nephrin", "Podocin", "Alpha-actinin-4", "CD2-associated protein"
-        ],
-        "a": 0,
-        "t": "Renal Genetics / Congenital Nephrotic",
-        "e": "Congenital Nephrotic Syndrome of the Finnish type (CNF) is an autosomal recessive disorder caused by mutations in the NPHS1 gene, which encodes Nephrin. Nephrin is the key transmembrane structural protein that forms the zipper-like filtration slit diaphragm connecting adjacent podocyte foot processes. Lack of nephrin completely disrupts the glomerular size-selective barrier, causing massive intrauterine/neonatal proteinuria."
-    },
-    {
-        "q": "To determine the selectivity of proteinuria in a patient with nephrotic syndrome, the laboratory calculates the Cameron Selectivity Index (clearance ratio of IgG to Transferrin: $\frac{C_{IgG}}{C_{Transferrin}}$). What does a Cameron index < 0.10 signify?",
-        "o": ["Highly non-selective proteinuria, indicating severe structural rupture of the glomerular basement membrane (e.g., Membranoproliferative GN).", "Highly selective proteinuria, indicating preferential loss of smaller negative proteins (albumin, transferrin) with preservation of large immunoglobulins (characteristic of Minimal Change Disease with high steroid responsiveness).", "Complete renal tubular failure.", "Bence Jones paraproteinuria."
-        ],
-        "a": 1,
-        "t": "Diagnostic Indices / Proteinuria",
-        "e": "The Cameron Selectivity Index measures the ratio of the clearance of a large molecule (IgG, MW 150 kDa) to an intermediate-sized molecule (Transferrin, MW 76 kDa). An index < 0.10 indicates 'Highly Selective' proteinuria: the glomerular basement membrane has lost its electrostatic negative charge, repelling large IgG while leaking smaller molecules (seen in Minimal Change Disease, predicting a >90% complete response to corticosteroids)."
-    },
-    {
-        "q": "A patient with systemic lupus erythematosus (SLE) has a renal biopsy that demonstrates features of BOTH Class IV (Diffuse Proliferative Lupus Nephritis) AND Class V (Membranous Lupus Nephritis). The patient has a serum creatinine of 2.1 mg/dL, active urinary sediment (RBC casts), and 8.5 g/24 hr of proteinuria. What is the evidence-based management strategy?",
-        "o": ["Treat the Class V component only with low-dose ACE inhibitors.", "Treat aggressively as Class IV Diffuse Proliferative Nephritis (pulsed IV methylprednisolone combined with either IV Cyclophosphamide or Mycophenolate Mofetil), because the proliferative lesion dictates the immediate threat to renal survival.", "Withhold all immunosuppression due to infection risk.", "Perform immediate bilateral nephrectomy."
-        ],
-        "a": 1,
-        "t": "Autoimmune Nephrology / Lupus",
-        "e": "In mixed lupus nephritis (Class IV + V), the aggressive proliferative Class IV lesion carries an imminent risk of necrosis, crescent formation, and irreversible nephron loss. Management is ALWAYS dictated by the more aggressive proliferative component: intensive induction therapy with high-dose corticosteroids plus Mycophenolate Mofetil (MMF) or intravenous Cyclophosphamide, with the addition of a calcineurin inhibitor (Voclosporin/Tacrolimus) for refractory nephrotic proteinuria."
-    },
-    {
-        "q": "A patient presenting with rapidly progressive glomerulonephritis (RPGN) has a renal biopsy confirming pauci-immune necrotizing crescentic glomerulonephritis with extensive necrosis. However, extensive serological testing for c-ANCA, p-ANCA, atypical ANCA, and Anti-GBM antibodies is completely NEGATIVE. How is this patient clinically diagnosed and treated?",
-        "o": ["Diagnosed as ANCA-Negative Pauci-Immune Crescentic Glomerulonephritis; treated identically to ANCA-positive vasculitis with high-dose intravenous corticosteroids and Cyclophosphamide (or Rituximab).", "Diagnosed as benign non-inflammatory glomerulosclerosis; no treatment needed.", "Treated with antibiotics alone for hidden occult infection.", "Managed exclusively with hemodialysis without immunosuppression."
-        ],
-        "a": 0,
-        "t": "Vasculitis / RPGN Variants",
-        "e": "Approximately 10% of patients with biopsy-proven pauci-immune necrotizing crescentic glomerulonephritis are serologically 'ANCA-negative'. Despite the absence of circulating antibodies, their clinical course, renal destruction, and responsiveness to immunosuppression are identical to ANCA-positive disease. They must be treated aggressively with induction pulse methylprednisolone and Cyclophosphamide or Rituximab to prevent complete destruction of the renal parenchyma."
-    },
-    {
-        "q": "In screening patients with Type 2 Diabetes Mellitus for early diabetic kidney disease, the clinical practice guidelines mandate measuring the Urine Albumin-to-Creatinine Ratio (UACR) rather than the standard Urine Protein-to-Creatinine Ratio (UPCR) or dipstick. What is the physiological rationale?",
-        "o": ["Standard protein dipsticks are sensitive to non-albumin globulins rather than albumin.", "UACR detects microalbuminuria (moderately increased albuminuria: 30 to 300 mg/g creatinine), which is the earliest clinical herald of glomerular endothelial damage and hyperfiltration, whereas standard dipsticks only become positive at macroalbuminuria (>300–500 mg/day).", "Creatinine excretion is altered in diabetes, making UPCR falsely high.", "UACR measures total tubular protein secretion."
-        ],
-        "a": 1,
-        "t": "Diagnostics / Diabetic Nephropathy",
-        "e": "Standard commercial urine dipsticks rely on tetrabromphenol blue, which is relatively insensitive and only turns positive when urinary albumin concentration exceeds 20–30 mg/dL (equating to macroalbuminuria > 300–500 mg/day). By the time dipsticks detect proteinuria, extensive irreversible diabetic glomerulosclerosis has occurred. The UACR laboratory test detects microalbuminuria (30–300 mg/g) years earlier, allowing timely initiation of renoprotective ACEi/ARB and SGLT2i therapy."
-    }
-];
-    const questionsPart2 = [
-    // ==========================================
-    // --- SECTION 3 (CONTINUED): TUBULAR, GENETIC & VASCULAR DISORDERS (Q51 - Q60) ---
-    // ==========================================
-    {
-        "q": "A 14-year-old adolescent presents with failure to thrive, generalized muscle weakness, and polyuria. Laboratory workup reveals: Serum K+ 2.6 mEq/L, Na+ 134 mEq/L, Cl- 88 mEq/L, HCO3- 32 mEq/L (hypokalemic metabolic alkalosis), blood pressure 96/60 mmHg (normal-low), markedly elevated plasma renin and aldosterone, and hypercalciuria with bilateral medullary nephrocalcinosis. Genetic testing confirms an inactivating mutation in the SLC12A1 gene encoding the apical Na-K-2Cl cotransporter (NKCC2). What is the diagnosis?",
-        "o": [
-            "Gitelman Syndrome",
-            "Antenatal/Classic Bartter Syndrome (Type 1)",
-            "Liddle Syndrome",
-            "Gordon Syndrome (Pseudohypoaldosteronism Type II)"
-        ],
-        "a": 1,
-        "t": "Tubulopathies / Bartter Syndrome",
-        "e": "Bartter Syndrome is an autosomal recessive tubulopathy affecting the thick ascending limb of the loop of Henle, mimicking chronic loop diuretic (Furosemide) toxicity. Mutations in NKCC2 (Type 1) or ROMK (Type 2) impair sodium and chloride reabsorption, causing volume contraction, secondary hyperaldosteronism, hypokalemic metabolic alkalosis, and defective calcium reabsorption resulting in severe hypercalciuria and nephrocalcinosis. Gitelman syndrome differs by having hypocalciuria and hypomagnesemia."
-    },
-    {
-        "q": "A 26-year-old female presents with severe refractory hypertension (BP 190/115 mmHg), persistent hypokalemia (K+ 2.8 mEq/L), and metabolic alkalosis. Her plasma renin activity (PRA) and plasma aldosterone concentration (PAC) are both profoundly suppressed to nearly undetectable levels. Genetic sequencing reveals a gain-of-function mutation in the SCNN1B gene, which impairs the PY-motif deletion of the Epithelial Sodium Channel (ENaC), preventing its ubiquitination and degradation by Nedd4-2. What is the diagnosis and the definitive targeted pharmacotherapy?",
-        "o": [
-            "Primary Hyperaldosteronism (Conn's Syndrome); treat with high-dose Spironolactone.",
-            "Liddle Syndrome (Pseudoaldosteronism); treat with direct ENaC channel blockers (Amiloride or Triamterene).",
-            "Congenital Adrenal Hyperplasia; treat with oral Dexamethasone.",
-            "Syndrome of Apparent Mineralocorticoid Excess (SAME); treat with Fludrocortisone."
-        ],
-        "a": 1,
-        "t": "Tubulopathies / Liddle Syndrome",
-        "e": "Liddle Syndrome is an autosomal dominant 'pseudoaldosteronism' caused by gain-of-function mutations in the beta or gamma subunits of the ENaC channel. Channels cannot be cleared from the apical membrane of principal cells, leading to constitutive, uncontrolled sodium reabsorption and potassium/hydrogen wasting. This volume expansion suppresses both renin and aldosterone. Because the mineralocorticoid receptor is not involved, aldosterone antagonists like Spironolactone are completely ineffective; direct ENaC blockers (Amiloride, Triamterene) are required."
-    },
-    {
-        "q": "A patient with persistent hypokalemia (2.7 mEq/L) and metabolic alkalosis undergoes urinary calcium excretion testing. The 24-hour urine calcium-to-creatinine ratio is 0.05 (markedly reduced / hypocalciuria), and serum magnesium is low at 1.1 mg/dL. Genetic testing confirms an inactivating mutation in the SLC12A3 gene encoding the thiazide-sensitive Sodium-Chloride Cotransporter (NCCT) in the distal convoluted tubule. How does Gitelman Syndrome differ from Bartter Syndrome?",
-        "o": [
-            "Gitelman causes severe hypercalciuria, whereas Bartter causes hypocalciuria.",
-            "Gitelman syndrome is characterized by hypocalciuria and severe hypomagnesemia, mimicking chronic Thiazide diuretic use, whereas Bartter causes hypercalciuria and nephrocalcinosis.",
-            "Gitelman presents with severe hypertension, whereas Bartter has hypotension.",
-            "Gitelman is an autosomal dominant disorder affecting the proximal tubule."
-        ],
-        "a": 1,
-        "t": "Tubulopathies / Gitelman Syndrome",
-        "e": "Gitelman Syndrome is an autosomal recessive disorder of the distal convoluted tubule (mimicking chronic thiazide use) due to loss-of-function mutations in the NCCT cotransporter. Unlike Bartter syndrome (which causes hypercalciuria and early-onset nephrocalcinosis), Gitelman syndrome characteristically features marked HYPOCALCIURIA (due to enhanced compensatory proximal calcium reabsorption), severe hypomagnesemia (due to TRPM6 channel downregulation in the DCT), and late adolescent/adult onset."
-    },
-    {
-        "q": "An intravenous urography (IVU) on a 35-year-old female evaluated for recurrent calcium oxalate nephrolithiasis demonstrates linear striations of contrast radiating outward from the calyces into the renal pyramids ('paint-brush' or 'bouquet of flowers' appearance) secondary to cystic dilatation of the medullary collecting ducts. What congenital benign renal anomaly is this?",
-        "o": [
-            "Autosomal Dominant Polycystic Kidney Disease (ADPKD)",
-            "Medullary Sponge Kidney (Cacchi-Ricci Disease)",
-            "Medullary Cystic Kidney Disease",
-            "Multicystic Dysplastic Kidney (MCDK)"
-        ],
-        "a": 1,
-        "t": "Congenital Anomalies / Medullary Sponge Kidney",
-        "e": "Medullary Sponge Kidney (MSK) is a congenital anomaly characterized by non-progressive, ectatic, cystic dilatation of the terminal collecting ducts in one or more renal pyramids. Contrast accumulates in these dilated tubules during excretory urography, producing the classic 'paint-brush', 'fan', or 'bouquet of flowers' appearance. It predisposes patients to distal RTA, hypercalciuria, calcium nephrolithiasis, and recurrent pyelonephritis."
-    },
-    {
-        "q": "A 48-year-old female with long-standing sickle cell disease and daily abuse of combination analgesics (aspirin, acetaminophen, caffeine) presents with acute flank pain, gross hematuria, and oliguria. Urinalysis reveals sloughed necrotic tissue fragments. Retrograde pyelogram demonstrates contrast filling cavities within the medullary pyramids, producing a characteristic 'Ring Shadow' sign. What diagnosis is confirmed?",
-        "o": [
-            "Renal Papillary Necrosis (RPN)",
-            "Acute Cortical Necrosis",
-            "Renal Cell Carcinoma",
-            "Ureteral transitional cell carcinoma"
-        ],
-        "a": 0,
-        "t": "Renal Pathology / Papillary Necrosis",
-        "e": "Renal Papillary Necrosis (RPN) is ischemic coagulative necrosis of the renal papillae and medullary pyramids. Classic causes include the 'POSTCARDS' mnemonic: Pyelonephritis, Obstruction, Sickle cell disease, Tuberculosis, Cirrhosis, Analgesic nephropathy, Renal vein thrombosis, Diabetes mellitus, and Systemic vasculitis. On pyelography, sloughed papillae leave cavities surrounded by contrast, creating the pathognomonic 'ring shadow' sign. Sloughed necrotic papillae can obstruct the ureter."
-    },
-    {
-        "q": "A 70-year-old male with generalized atherosclerosis undergoes cardiac catheterization with abdominal aortography. Three weeks later, his serum creatinine has risen progressively from 1.1 to 3.8 mg/dL. Physical examination reveals livedo reticularis on the lower extremities and cyanotic, painful, cold toes with intact peripheral dorsalis pedis pulses ('Blue Toe Syndrome'). Lab tests show marked peripheral eosinophilia, eosinophiluria, and transient hypocomplementemia. What pathognomonic histological lesion confirms Atheroembolic Renal Disease on kidney biopsy?",
-        "o": [
-            "Diffuse fibrin thrombi in the glomerular capillaries.",
-            "Biconvex, needle-shaped empty 'Ghost Clefts' within the lumina of small arcuate and interlobular renal arteries, representing dissolved cholesterol crystals surrounded by foreign-body giant cell inflammation.",
-            "Smooth linear IgG deposition along the basement membrane.",
-            "Extensive epithelial crescents filling Bowman's space."
-        ],
-        "a": 1,
-        "t": "Vascular Nephrology / Atheroembolism",
-        "e": "Atheroembolic Renal Disease (cholesterol crystal embolization) occurs days to weeks following vascular catheterization, anticoagulation, or vascular surgery. Disrupted aortic plaques release showers of micro-cholesterol crystals that lodge in small arcuate/interlobular arteries (100–200 μm). During histological preparation, solvents dissolve the cholesterol, leaving behind pathognomonic biconvex, needle-shaped empty spaces known as 'cholesterol ghost clefts' with secondary giant cell reaction."
-    },
-    {
-        "q": "How does the clinical onset, trajectory, and recovery of Contrast-Induced Nephropathy (CIN) differ from Atheroembolic Renal Disease (AERD)?",
-        "o": [
-            "CIN begins weeks after exposure with irreversible ESRD; AERD peaks in 24 hours and fully recovers.",
-            "CIN demonstrates an acute, predictable creatinine rise starting in 24–48 hours, peaking at 3–5 days, and recovering to baseline by 7–10 days; AERD has a delayed onset (1–4 weeks), a stuttering/stepwise progressive decline in GFR, multisystem embolization (livedo reticularis, eosinophilia), and rarely recovers renal function.",
-            "CIN causes severe hypocomplementemia; AERD does not alter complement.",
-            "CIN causes blue toe syndrome; AERD causes transient anuria."
-        ],
-        "a": 1,
-        "t": "Renal Differentials / Acute vs Subacute",
-        "e": "CIN is an acute, predictable, toxic-ischemic insult: creatinine rises within 24–48 hours of iodinated contrast, peaks at day 3–5, and typically resolves by day 7–10 without extrarenal signs. In contrast, Atheroembolism is a subacute, delayed-onset (1–6 weeks post-procedure), indolent, progressive disease with a stepwise decline in GFR, accompanied by systemic vasculitic-like signs (livedo reticularis, gut ischemia, blue toes, hypocomplementemia, eosinophilia) and a poor renal prognosis."
-    },
-    {
-        "q": "A 56-year-old male presents with newly diagnosed nephrotic syndrome. Renal biopsy reveals membranous nephropathy. However, serological testing for anti-PLA2R antibodies is negative, and immunohistochemistry of the biopsy is negative for IgG4 but strongly positive for IgG1 and IgG2. High-resolution CT of the chest reveals a 3 cm spiculated mass in the right lung. What is the clinical significance of distinguishing primary from secondary Membranous Nephropathy?",
-        "o": [
-            "Secondary membranous nephropathy requires immediate therapeutic plasma exchange.",
-            "Secondary membranous nephropathy is driven by underlying occult malignancies (e.g., lung, colon carcinoma), infections (Hep B), or autoimmune disease; it does not respond to immunosuppression and requires identification and treatment of the primary underlying cancer.",
-            "Primary membranous is caused exclusively by NSAID abuse.",
-            "Secondary membranous nephropathy is an autosomal dominant genetic mutation."
-        ],
-        "a": 1,
-        "t": "Glomerular Pathology / Secondary Membranous",
-        "e": "Primary membranous nephropathy is an autoimmune organ-specific disease characterized by anti-PLA2R antibodies (predominantly IgG4 subclass). Secondary membranous nephropathy (~20–30% of cases) is triggered by circulating extrinsic antigens: solid organ carcinomas (lung, colon, prostate, breast), Hepatitis B, or SLE. Secondary membranous characteristically shows IgG1 and IgG2 deposition and negative anti-PLA2R. Successful treatment depends on surgical resection or treatment of the primary malignancy."
-    },
-    {
-        "q": "A patient evaluated for isolated proximal tubular dysfunction has a Fractional Excretion of Bicarbonate (FE-HCO3) of 22% when plasma bicarbonate is normalized to 24 mEq/L via IV bicarbonate infusion. The baseline urine pH is 5.2 during systemic acidemia. What is the diagnosis and why does Type 2 Proximal RTA NOT cause nephrocalcinosis?",
-        "o": [
-            "Type 1 Distal RTA; distal intercalated cells are functional.",
-            "Type 2 Proximal RTA; during acidemia, urine is successfully acidified below pH 5.5 by functional distal collecting ducts, and calcium is not mobilized from bones as heavily as in distal RTA.",
-            "Type 4 RTA; high potassium protects against stone formation.",
-            "Fanconi syndrome without metabolic acidosis."
-        ],
-        "a": 1,
-        "t": "Renal Tubular Acidosis / Type 2",
-        "e": "Type 2 (Proximal) RTA is caused by a defect in proximal bicarbonate reabsorption (isolated or part of Fanconi syndrome). When serum HCO3 drops below the lowered renal threshold (e.g., 14–16 mEq/L), all filtered HCO3 can now be reabsorbed, and distal alpha-intercalated cells acidify the urine normally (urine pH < 5.5). Because distal acidification is intact and severe chronic hypercalciuria/hypocitraturia does not occur, nephrocalcinosis and nephrolithiasis are characteristically ABSENT in Type 2 RTA."
-    },
-    {
-        "q": "According to the updated International Club of Ascites (ICA-HRS) consensus criteria for Hepatorenal Syndrome - Acute Kidney Injury (HRS-AKI), which criterion was officially ELIMINATED to permit earlier therapeutic intervention?",
-        "o": ["The requirement for the patient to have cirrhosis and ascites.", "The historical requirement for serum creatinine to exceed an arbitrary fixed threshold of 2.5 mg/dL; diagnosis now relies on KDIGO AKI criteria (rise in Cr ≥ 0.3 mg/dL within 48h or ≥ 50% from baseline).", "The requirement to withdraw diuretics for 48 hours.", "The requirement for an initial 2-day plasma volume expansion with IV Albumin."
-        ],
-        "a": 1,
-        "t": "Critical Care / ICA-HRS Consensus",
-        "e": "The old 2007 ICA definition required serum creatinine to rise above an arbitrary, rigid cutoff of 2.5 mg/dL before diagnosing HRS. Because cirrhotic patients have severe sarcopenia and reduced hepatic urea synthesis, baseline creatinine is often very low (0.4–0.6 mg/dL); waiting for creatinine to reach 2.5 mg/dL resulted in fatal treatment delays. The revised ICA-HRS criteria adopted the KDIGO definition (rise ≥0.3 mg/dL in 48 hr or ≥50%), initiating vasoconstrictor therapy days earlier."
-    },
+    {"q":"A 34-year-old female presents with acute renal failure, microangiopathic hemolytic anemia, thrombocytopenia (18,000/μL), normal PT/aPTT, and confusion. ADAMTS13 activity is 68% (Normal > 60%). Shiga toxin is negative. What is the diagnosis and targeted monoclonal antibody?","o":["TTP; treat with plasma exchange alone.","Atypical Hemolytic Uremic Syndrome (aHUS); initiate Eculizumab (anti-C5 terminal complement inhibitor).","DIC; administer Fresh Frozen Plasma.","ITP; treat with intravenous immunoglobulin."],"a":1,"t":"Thrombotic Microangiopathies / aHUS","e":"Normal ADAMTS13 (>10%) excludes TTP. Negative Shiga toxin excludes typical HUS. Atypical HUS is uncontrolled alternative complement activation treated with Eculizumab, a monoclonal antibody blocking C5 cleavage."},
+    {"q":"A patient with gross hematuria and low C3 complement (<20 mg/dL) with normal C4 has circulating 'C3 Nephritic Factor' (C3NeF). What is the mechanism of C3NeF in Dense Deposit Disease?","o":["Direct podocyte lysis via Fc receptors.","It is an autoantibody that binds and stabilizes alternative pathway C3 convertase (C3bBb), preventing inactivation by Factor H and causing continuous C3 consumption.","Inhibition of classical pathway at C1q.","Linear IgG deposition along the GBM."],"a":1,"t":"Glomerular Disease / C3G","e":"C3NeF binds and stabilizes C3bBb convertase, preventing Factor H breakdown. This drives continuous alternative complement consumption, causing profound hypocomplementemia (low C3) and dense intramembranous GBM deposits."},
+    {"q":"A patient with chronic Hepatitis C presents with palpable purpura, polyarthralgias, elevated Rheumatoid Factor, markedly low C4 with normal C3, and MPGN on biopsy. What is this syndrome?","o":["Systemic Lupus Erythematosus","Type II Mixed Cryoglobulinemia","Granulomatosis with Polyangiitis","Henoch-Schönlein Purpura"],"a":1,"t":"Glomerular Pathology / Cryoglobulinemia","e":"Type II Mixed Cryoglobulinemia is strongly linked to Hepatitis C. Monoclonal IgM rheumatoid factors bind polyclonal IgG, precipitating in cold temperatures, causing Meltzer's triad (purpura, arthralgia, weakness), low C4, and MPGN."},
+    {"q":"A 64-year-old male presents with massive hemoptysis, red cell casts, creatinine 4.5 mg/dL, and p-ANCA (anti-MPO) positivity. Biopsy shows pauci-immune necrotizing crescentic GN without granulomas or asthma history. Diagnosis?","o":["Granulomatosis with Polyangiitis (GPA)","Microscopic Polyangiitis (MPA)","Eosinophilic Granulomatosis with Polyangiitis (EGPA)","Anti-GBM disease"],"a":1,"t":"Systemic Vasculitis / MPA","e":"Microscopic Polyangiitis is a necrotizing small-vessel vasculitis presenting as pulmonary-renal syndrome. It is p-ANCA (anti-MPO) positive and lacks granulomas (distinguishing it from GPA) and asthma (distinguishing it from EGPA)."},
+    {"q":"A patient with ESRD secondary to Anti-GBM Disease is being evaluated for kidney transplantation. What is the mandatory immunological criterion prior to transplantation?","o":["Anti-GBM antibody titers must be reduced by 50%.","Circulating anti-GBM antibodies must remain completely undetectable by ELISA for at least 6 to 12 months prior to transplant.","Completion of 20 prophylactic plasma exchange sessions.","Immediate transplant is safe with Tacrolimus."],"a":1,"t":"Transplant Immunology / Anti-GBM","e":"Transplanting while anti-GBM antibodies circulate triggers immediate recurrence of crescentic destruction in the allograft. Antibodies must be confirmed undetectable for at least 6–12 months prior to surgery."},
+    {"q":"A multiple myeloma patient presents with oliguric AKI. Urine dipstick shows 1+ protein, but 24-hour urine reveals 8.5g protein. Biopsy shows fractured crystalline tubular casts surrounded by multinucleated giant cells. Diagnosis?","o":["Amyloid light-chain glomerulopathy","Light Chain Cast Nephropathy ('Myeloma Kidney')","Acute tubular necrosis from hypercalcemia","Monoclonal immunoglobulin deposition disease"],"a":1,"t":"Monoclonal Gammopathies / Cast Nephropathy","e":"Monoclonal free light chains (Bence Jones proteins) overwhelm proximal tubular reabsorption, coprecipitating with Tamm-Horsfall protein in distal tubules to form rigid, fractured casts with giant cell reactions. Dipsticks miss light chains."},
+    {"q":"A patient with monoclonal IgG kappa paraproteinemia has hematuria, hypertension, and nephrotic proteinuria. Bone marrow confirms 4% plasma cells (ruling out active myeloma), but renal biopsy proves monoclonal deposition disease. How is this classified?","o":["Monoclonal Gammopathy of Undetermined Significance (MGUS)","Monoclonal Gammopathy of Renal Significance (MGRS)","Waldenström's Macroglobulinemia","Primary AL Amyloidosis"],"a":1,"t":"Nephrology / MGRS","e":"MGRS describes clonal B-cell or plasma cell disorders that do not meet hematologic criteria for overt myeloma or lymphoma, but produce monoclonal proteins causing progressive, organ-threatening renal destruction."},
+    {"q":"A rheumatoid arthritis patient presents with anasarca, macroglossia, hepatosplenomegaly, and proteinuria (9 g/day). Renal biopsy shows mesangial amorphous deposits staining positive with Congo Red. Under polarized light, what optical feature confirms Amyloidosis?","o":["Bright golden-yellow luminescence","Brilliant Apple-Green Birefringence","Linear blue-violet refraction","Complete dark extinction"],"a":1,"t":"Renal Pathology / Amyloidosis","e":"The beta-pleated sheet tertiary structure of amyloid binds Congo Red dye in parallel alignment, producing pathognomonic apple-green birefringence under cross-polarized light."},
+    {"q":"A patient with nephrotic syndrome has a biopsy showing non-branching, randomly arranged microfibrils (16–24 nm) that are Congo Red NEGATIVE. Immunohistochemistry is strongly positive for DNAJB9. Diagnosis?","o":["Renal Amyloidosis","Immunotactoid Glomerulopathy","Fibrillary Glomerulonephritis (FGN)","Dense Deposit Disease"],"a":2,"t":"Renal Pathology / Fibrillary GN","e":"Fibrillary Glomerulonephritis has larger fibrils than amyloid (16–24 nm vs 7–10 nm) and is Congo Red negative. DNAJB9 is a 98% sensitive and 99% specific diagnostic immunohistochemical marker for FGN."},
+    {"q":"Under the Columbia Classification of Focal Segmental Glomerulosclerosis (FSGS), which histological variant has the highest rate of complete remission with corticosteroids and the best renal prognosis?","o":["Collapsing variant","Tip lesion variant","Perihilar variant","Cellular variant"],"a":1,"t":"Glomerular Pathology / FSGS Variants","e":"The Tip lesion variant (involving the tubular pole of the glomerulus) behaves similarly to Minimal Change Disease, exhibiting high corticosteroid responsiveness and favorable long-term renal survival."},
+    {"q":"A diabetic patient's renal biopsy shows nodular intercapillary glomerulosclerosis with acellular, PAS-positive, laminated hyaline material surrounded by compressed capillaries. What are these nodules called?","o":["Wire-loop lesions","Kimmelstiel-Wilson nodules","Crescentic rings","Hyaline microthrombi"],"a":1,"t":"Diabetic Nephropathy / Histopathology","e":"Kimmelstiel-Wilson nodules are pathognomonic for nodular diabetic glomerulosclerosis, accompanied by arteriolar hyalinosis involving both afferent and efferent glomerular arterioles."},
+    {"q":"A renal biopsy shows capillary wall thickening with silver methenamine staining demonstrating circumferential mesangial interposition, producing a 'Double Contour' or 'Tram-Track' appearance of the GBM. What pathology is this?","o":["Membranous Nephropathy","Membranoproliferative Glomerulonephritis (MPGN)","Minimal Change Disease","Crescentic Glomerulonephritis"],"a":1,"t":"Glomerular Pathology / MPGN","e":"The tram-track (double contour) appearance is the hallmark of MPGN, caused by mesangial cells interposing into capillary walls and splitting the basement membrane beneath endothelial cells."},
+    {"q":"A 9-year-old child was treated for PSGN 6 weeks ago. The mother is anxious because routine urinalysis still shows microscopic hematuria (5–10 RBCs/hpf), though BP, creatinine, and C3 complement are normal. What is the expected clinical course?","o":["Treatment failure; start cyclophosphamide immediately.","Microscopic hematuria is expected to persist benignly for up to 1 to 2 years post-PSGN; reassurance is appropriate.","Immediate repeat renal biopsy is indicated.","Enforce strict permanent bed rest."],"a":1,"t":"Pediatric Nephrology / PSGN Prognosis","e":"In PSGN, edema and hypertension resolve in 1–2 weeks, C3 complement normalizes in 6–8 weeks, but microscopic hematuria commonly persists for 12 to 24 months without signifying progressive disease."},
+    {"q":"A nephrotic syndrome patient's urine is examined under polarized light microscopy. The nurse observes numerous birefringent Oval Fat Bodies displaying a distinct 'Maltese Cross' pattern. What are these structures?","o":["Uric acid crystals","Degenerating proximal tubular epithelial cells laden with cholesterol esters","Bacterial microcolonies","Eosinophil casts"],"a":1,"t":"Urinalysis / Nephrotic Syndrome","e":"Oval fat bodies are sloughed tubular cells that have engulfed filtered lipoproteins. Under polarized light, the liquid-crystalline cholesterol esters display brilliant 4-leafed 'Maltese Cross' birefringence."},
+    {"q":"A 45-year-old male presents with non-thrombocytopenic purpura on legs, colicky abdominal pain, arthralgias, and gross hematuria. Renal biopsy reveals dominant mesangial deposition of IgA and C3. Diagnosis?","o":["Polyarteritis Nodosa","Granulomatosis with Polyangiitis","Henoch-Schönlein Purpura (IgA Vasculitis)","Anti-GBM disease"],"a":2,"t":"Systemic Vasculitis / IgA Vasculitis","e":"Henoch-Schönlein Purpura is a systemic small-vessel IgA vasculitis characterized by palpable purpura, arthralgias, GI colic, and glomerulonephritis identical to IgA nephropathy."},
+    {"q":"A newborn has congenital nephrotic syndrome with heavy proteinuria at birth. Genetic testing confirms a homozygous mutation in the NPHS1 gene on chromosome 19q13. What critical slit diaphragm protein does NPHS1 encode?","o":["Nephrin","Podocin","Alpha-actinin-4","CD2-associated protein"],"a":0,"t":"Renal Genetics / Congenital Nephrotic","e":"NPHS1 encodes Nephrin, the structural transmembrane protein forming the zipper-like filtration slit diaphragm between podocyte foot processes. Absence of nephrin causes Finnish-type congenital nephrotic syndrome."},
+    {"q":"The Cameron Selectivity Index calculates the clearance ratio of IgG to Transferrin (CIgG / CTransferrin). What does an index < 0.10 signify?","o":["Highly non-selective proteinuria indicating severe GBM disruption.","Highly selective proteinuria, indicating loss of negative charge with preservation of large immunoglobulins (predicting >90% steroid response).","Complete renal tubular failure.","Bence Jones paraproteinuria."],"a":1,"t":"Diagnostic Indices / Proteinuria","e":"A Cameron index < 0.10 indicates highly selective proteinuria (albumin/transferrin filtered, but large 150 kDa IgG retained), characteristic of Minimal Change Disease and predicting high steroid responsiveness."},
+    {"q":"A lupus patient's renal biopsy demonstrates combined Class IV (Diffuse Proliferative) and Class V (Membranous) lesions with active RBC casts and 8.5g proteinuria. What is the evidence-based treatment strategy?","o":["Treat the Class V component only with ACE inhibitors.","Treat aggressively based on the Class IV proliferative component (pulsed IV methylprednisolone plus Cyclophosphamide or MMF).","Withhold all immunosuppression.","Immediate bilateral nephrectomy."],"a":1,"t":"Autoimmune Nephrology / Lupus","e":"In mixed Class IV + V lupus nephritis, the aggressive proliferative Class IV lesion poses the immediate threat of necrosis and scarring. Therapy is directed at Class IV with intensive immunosuppressive induction."},
+    {"q":"A patient with rapidly progressive glomerulonephritis has a biopsy confirming pauci-immune necrotizing crescentic GN, but serological testing for c-ANCA, p-ANCA, and Anti-GBM is completely NEGATIVE. How is this managed?","o":["Diagnosed as ANCA-Negative Pauci-Immune Crescentic GN; treat aggressively with IV pulse corticosteroids and Cyclophosphamide/Rituximab.","Diagnosed as benign non-inflammatory glomerulosclerosis.","Treated with antibiotics alone for occult infection.","Managed exclusively with hemodialysis without immunosuppression."],"a":0,"t":"Vasculitis / RPGN Variants","e":"Approximately 10% of pauci-immune crescentic GN cases are ANCA-negative. Their renal destruction and clinical course are identical to ANCA-positive disease, requiring immediate aggressive induction immunosuppression."},
+    {"q":"In screening diabetic patients for early kidney disease, why do clinical guidelines mandate the Urine Albumin-to-Creatinine Ratio (UACR) rather than standard protein dipsticks?","o":["Protein dipsticks detect globulins instead of albumin.","UACR detects microalbuminuria (30–300 mg/g creatinine), the earliest sign of hyperfiltration, whereas dipsticks only detect macroalbuminuria (>300–500 mg/day).","Creatinine excretion is altered in diabetes.","UACR measures total tubular protein secretion."],"a":1,"t":"Diagnostics / Diabetic Nephropathy","e":"Standard urine dipsticks only become positive at protein concentrations > 20–30 mg/dL (macroalbuminuria > 300–500 mg/day), missing early disease. UACR detects microalbuminuria (30–300 mg/g) years before dipstick conversion."},
 
-    // ==========================================
+    // --- SECTION 3: TUBULAR, GENETIC & VASCULAR DISORDERS (Q41 - Q60) ---
+    {"q":"A 14-year-old presents with failure to thrive, hypokalemic metabolic alkalosis, normal-low BP (96/60), hypercalciuria, and medullary nephrocalcinosis. Genetic testing confirms an inactivating mutation in the SLC12A1 gene encoding NKCC2. Diagnosis?","o":["Gitelman Syndrome","Antenatal/Classic Bartter Syndrome (Type 1)","Liddle Syndrome","Gordon Syndrome"],"a":1,"t":"Tubulopathies / Bartter Syndrome","e":"Bartter Syndrome Type 1 impairs the NKCC2 cotransporter in the thick ascending limb (mimicking furosemide), causing hypokalemic metabolic alkalosis, hyperreninemic hyperaldosteronism, and hypercalciuria with nephrocalcinosis."},
+    {"q":"A 26-year-old female presents with severe hypertension (190/115), hypokalemia (2.8 mEq/L), metabolic alkalosis, and suppressed renin and aldosterone. Genetic testing reveals a gain-of-function mutation in SCNN1B impairing ENaC degradation. What is the diagnosis and pharmacotherapy?","o":["Conn's Syndrome; treat with Spironolactone.","Liddle Syndrome; treat with direct ENaC blockers (Amiloride or Triamterene).","Congenital Adrenal Hyperplasia; treat with Dexamethasone.","Apparent Mineralocorticoid Excess; treat with Fludrocortisone."],"a":1,"t":"Tubulopathies / Liddle Syndrome","e":"Liddle syndrome is an autosomal dominant pseudoaldosteronism where mutated ENaC channels cannot be degraded, causing constitutive sodium retention and potassium wasting. Spironolactone is ineffective; Amiloride blocks ENaC directly."},
+    {"q":"A hypokalemic metabolic alkalosis patient has marked hypocalciuria (urine calcium-to-creatinine ratio 0.05) and hypomagnesemia (1.1 mg/dL) due to an inactivating mutation in the thiazide-sensitive NCCT transporter. How does Gitelman differ from Bartter Syndrome?","o":["Gitelman causes hypercalciuria; Bartter causes hypocalciuria.","Gitelman features marked hypocalciuria and hypomagnesemia (mimicking thiazides), whereas Bartter causes hypercalciuria and nephrocalcinosis.","Gitelman presents with severe hypertension.","Gitelman affects the proximal tubule."],"a":1,"t":"Tubulopathies / Gitelman Syndrome","e":"Gitelman syndrome is a distal convoluted tubule defect (loss of NCCT cotransporter) causing hypocalciuria and hypomagnesemia with adult presentation, whereas Bartter syndrome causes hypercalciuria and nephrocalcinosis."},
+    {"q":"An intravenous urography shows linear striations of contrast radiating from calyces into pyramids ('paint-brush' appearance) secondary to cystic dilatation of medullary collecting ducts. What congenital anomaly is this?","o":["Autosomal Dominant Polycystic Kidney Disease","Medullary Sponge Kidney (Cacchi-Ricci Disease)","Medullary Cystic Kidney Disease","Multicystic Dysplastic Kidney"],"a":1,"t":"Congenital Anomalies / Medullary Sponge Kidney","e":"Medullary Sponge Kidney features cystic dilatation of terminal collecting ducts. Contrast pooling produces the pathognomonic 'paint-brush' or 'bouquet of flowers' pattern, predisposing to distal RTA and calcium stones."},
+    {"q":"A sickle cell patient abusing combination analgesics presents with flank pain, hematuria, and tissue fragments in urine. Retrograde pyelogram demonstrates contrast filling cavities within pyramids ('Ring Shadow' sign). Diagnosis?","o":["Renal Papillary Necrosis (RPN)","Acute Cortical Necrosis","Renal Cell Carcinoma","Ureteral transitional cell carcinoma"],"a":0,"t":"Renal Pathology / Papillary Necrosis","e":"Renal Papillary Necrosis involves ischemic sloughing of medullary papillae (common in sickle cell and analgesic abuse). Contrast surrounding the sloughed necrotic core produces the classic 'ring shadow' sign."},
+    {"q":"Three weeks following cardiac catheterization, an elderly male's creatinine rises to 3.8 mg/dL. He has livedo reticularis, blue toes with intact pulses, and eosinophilia. What pathognomonic lesion confirms Atheroembolic Renal Disease on biopsy?","o":["Diffuse capillary fibrin thrombi.","Biconvex, needle-shaped empty 'Ghost Clefts' in arcuate arteries representing dissolved cholesterol crystals surrounded by giant cell inflammation.","Linear IgG basement membrane deposits.","Epithelial crescents in Bowman's space."],"a":1,"t":"Vascular Nephrology / Atheroembolism","e":"Dislodged aortic atheroma crystals embolize to small renal arteries. Solvents dissolve cholesterol during slide preparation, leaving pathognomonic biconvex 'ghost clefts' with foreign-body giant cell reactions."},
+    {"q":"How does the clinical trajectory of Contrast-Induced Nephropathy (CIN) differ from Atheroembolic Renal Disease (AERD)?","o":["CIN begins weeks later with irreversible failure; AERD peaks in 24 hours.","CIN peaks at 3–5 days and resolves by 7–10 days; AERD has delayed onset (1–4 weeks), stepwise progressive decline, multisystem emboli (blue toes), and poor renal recovery.","CIN causes severe hypocomplementemia.","CIN causes livedo reticularis."],"a":1,"t":"Renal Differentials / Acute vs Subacute","e":"CIN is an acute reversible injury peaking at day 3–5. Atheroembolism is a subacute progressive disease appearing 1–6 weeks post-procedure, showing stepwise deterioration, systemic signs, and poor recovery."},
+    {"q":"A patient with membranous nephropathy is anti-PLA2R negative and IgG4 negative, but IgG1/IgG2 positive on biopsy. Chest CT reveals a lung mass. What is the clinical significance of secondary Membranous Nephropathy?","o":["Requires immediate plasma exchange.","It is driven by underlying occult malignancies (carcinomas) or infections; it does not respond to primary immunosuppression and requires treating the underlying cancer.","Caused exclusively by NSAIDs.","It is an autosomal dominant mutation."],"a":1,"t":"Glomerular Pathology / Secondary Membranous","e":"Secondary membranous nephropathy is triggered by solid tumors (lung, colon) or infections, depositing IgG1/IgG2 rather than IgG4. Immunosuppression is ineffective; managing the primary cancer is required."},
+    {"q":"A patient with isolated proximal tubular dysfunction has a Fractional Excretion of Bicarbonate of 22% when serum HCO3 is normalized, but urine pH is 5.2 during acidemia. Why does Type 2 Proximal RTA NOT cause nephrocalcinosis?","o":["Distal intercalated cells are absent.","During acidemia, distal collecting ducts acidify urine below pH 5.5, and systemic buffering does not heavily mobilize bone calcium.","High potassium protects against stones.","Fanconi syndrome prevents hypercalciuria."],"a":1,"t":"Renal Tubular Acidosis / Type 2","e":"In Type 2 RTA, distal acidification remains intact once serum HCO3 drops below the lowered threshold (urine pH < 5.5). Because distal acidification is preserved and severe hypocitraturia does not occur, stones do not form."},
+    {"q":"Under the updated International Club of Ascites (ICA-HRS) criteria for Hepatorenal Syndrome (HRS-AKI), which criterion was officially ELIMINATED to permit earlier therapy?","o":["Requirement for cirrhosis and ascites.","The historical requirement for serum creatinine to exceed an arbitrary fixed threshold of 2.5 mg/dL; diagnosis now relies on KDIGO criteria.","Requirement to withdraw diuretics for 48 hours.","Requirement for plasma volume expansion with Albumin."],"a":1,"t":"Critical Care / ICA-HRS Consensus","e":"The old requirement of serum creatinine > 2.5 mg/dL delayed therapy in sarcopenic cirrhotic patients. The revised criteria use KDIGO definitions (rise >=0.3 mg/dL or >=50%), initiating vasoconstrictors days earlier."},
+    {"q":"A 54-year-old female presents with resistant hypertension, an epigastric systolic-diastolic bruit, and a 'string of beads' appearance of the right renal artery on angiography. Diagnosis and treatment?","o":["Atherosclerotic stenosis; statins alone.","Fibromuscular Dysplasia (FMD); treat with Percutaneous Transluminal Renal Angioplasty (PTRA) without stenting.","Polyarteritis Nodosa; Cyclophosphamide.","Takayasu Arteritis; surgical bypass."],"a":1,"t":"Renovascular Hypertension / FMD","e":"FMD causes non-atherosclerotic medial fibroplasia in young-to-middle-aged women ('string of beads' sign). Angioplasty (PTRA) without stenting is the treatment of choice, yielding high cure rates."},
+    {"q":"A patient with recurrent calcium phosphate stones has normal anion gap acidosis (pH 7.28, HCO3 15) and urine pH persistently 6.8 despite acidemia. What is the underlying tubular defect?","o":["Type 1 (Distal) RTA: failure of alpha-intercalated cells in collecting ducts to secrete H+ ions.","Type 2 Proximal RTA.","Type 4 Hyperkalemic RTA.","Fanconi Syndrome."],"a":0,"t":"Renal Tubular Acidosis / RTA Type 1","e":"Type 1 Distal RTA is an inability of collecting duct alpha-intercalated cells to secrete H+, leaving urine inappropriately alkaline (pH > 5.5). Alkaline urine precipitates calcium phosphate stones and nephrocalcinosis."},
+    {"q":"A diabetic nephropathy patient presents with K+ 5.8 mEq/L, normal anion gap metabolic acidosis, creatinine 2.1 mg/dL, and acidic urine pH 5.0. Renin and aldosterone are low. Diagnosis?","o":["Type 1 Distal RTA","Type 2 Proximal RTA","Type 4 (Hyperkalemic) RTA / Hyporeninemic Hypoaldosteronism","Metformin lactic acidosis"],"a":2,"t":"Renal Tubular Acidosis / RTA Type 4","e":"Type 4 RTA is hyporeninemic hypoaldosteronism in diabetes. Aldosterone deficiency impairs distal Na+ reabsorption and K+/H+ excretion, causing hyperkalemia and acidosis with preserved ability to acidify urine <5.5."},
+    {"q":"A nephrotic patient's biopsy shows diffuse GBM thickening with silver stain 'spikes and domes'. Serum anti-PLA2R antibodies are strongly positive. Diagnosis?","o":["Primary Membranous Nephropathy","Diabetic Glomerulosclerosis","Amyloidosis","Minimal Change Disease"],"a":0,"t":"Glomerular Pathology / Membranous","e":"Primary Membranous Nephropathy features autoantibodies to podocyte M-type PLA2R receptors. Subepithelial immune deposits stimulate podocytes to lay down basement membrane material, forming 'spikes and domes'."},
+    {"q":"An untreated HIV patient develops massive proteinuria (12 g/day). Biopsy shows the 'collapsing variant' of FSGS. Which genetic alleles in African ancestry confer high risk?","o":["PKD1 gene variant","APOL1 (Apolipoprotein L1) G1 and G2 risk alleles","COL4A5 gene mutation","CFTR gene mutation"],"a":1,"t":"Renal Genetics / FSGS","e":"Homozygous APOL1 risk alleles (G1, G2) protect against African sleeping sickness but predispose to severe podocyte injury, collapsing FSGS, and HIV-Associated Nephropathy (HIVAN)."},
+    {"q":"A 16-year-old boy presents with hematuria, sensorineural hearing loss, and anterior lenticonus. Genetic testing reveals a COL4A5 mutation. What basement membrane defect characterizes Alport Syndrome?","o":["Uniform thinning of the lamina densa.","Irregular thinning, thickening, splitting, and lamellation of the GBM ('basket-weave' appearance).","Subendothelial wire-loop deposits.","Kimmelstiel-Wilson nodules."],"a":1,"t":"Genetic Nephropathy / Alport Syndrome","e":"Alport syndrome is an X-linked type IV collagen defect (COL4A5) causing structural destabilization of basement membranes, manifesting as a classic 'basket-weave' lamellation of the GBM on electron microscopy."},
+    {"q":"Which clinical feature definitively differentiates Acute Pyelonephritis from Acute Cystitis?","o":["Macroscopic hematuria and suprapubic pain.","High fever, rigors, flank pain with Costovertebral Angle (CVA) tenderness, and White Blood Cell (WBC) casts.","Bacteriuria > 100,000 CFU/mL.","Positive leukocyte esterase and nitrite."],"a":1,"t":"Renal Infections / Pyelonephritis","e":"Cystitis causes local lower urinary symptoms without fever. Acute Pyelonephritis is a parenchymal infection confirmed by systemic toxicity (fever, chills), CVA flank tenderness, and pathognomonic WBC casts."},
+    {"q":"A diabetic female presents with septic shock, flank pain, and gas in the renal parenchyma and perinephric space on CT. Diagnosis and emergency intervention?","o":["Acute tubular necrosis; hemodialysis.","Emphysematous Pyelonephritis (EPN); broad-spectrum IV antibiotics with immediate percutaneous catheter drainage or emergency nephrectomy.","Xanthogranulomatous pyelonephritis; elective surgery.","Renal cell carcinoma; chemotherapy."],"a":1,"t":"Infectious Emergencies / EPN","e":"Emphysematous Pyelonephritis is a gas-forming parenchymal necrotizing infection in diabetics. It carries high mortality and requires emergency IV antibiotics plus immediate percutaneous drainage or nephrectomy."},
+    {"q":"A nephrectomy specimen shows replacement of renal parenchyma by sheets of lipid-laden foamy macrophages ('bear's paw sign' on CT) surrounding a staghorn calculus. Diagnosis?","o":["Renal amyloidosis","Xanthogranulomatous Pyelonephritis (XPN)","Malakoplakia","Renal Oncocytoma"],"a":1,"t":"Renal Pathology / XPN","e":"XPN is chronic destructive granulomatous inflammation linked to staghorn calculi and Proteus infections. Parenchyma is replaced by lipid-laden xanthoma foamy macrophages, mimicking renal cell carcinoma."},
+    {"q":"A child with bloody diarrhea develops microangiopathic hemolytic anemia, thrombocytopenia, and oliguria (STEC-HUS). Why are antibiotics strictly CONTRAINDICATED?","o":["Antibiotics induce acute interstitial nephritis.","Antibiotics lyse bacteria and upregulate phage genes, triggering massive Shiga toxin release that worsens microvascular thrombosis and renal destruction.","Antibiotics cause splenic platelet destruction.","Antibiotics neutralize eculizumab."],"a":1,"t":"Pediatric Nephrology / HUS","e":"In STEC-HUS (E. coli O157:H7), antibiotic-induced bacterial injury triggers massive Shiga toxin dumping into the gut, accelerating systemic absorption, glomerular endothelial damage, and microvascular thrombosis."},
+
     // --- SECTION 4: ADVANCED UROLOGY, TRAUMA, ONCOLOGY & VOIDING DYSFUNCTION (Q61 - Q80) ---
-    // ==========================================
-    {
-        "q": "During a difficult laparoscopic low anterior resection (LAR) for rectal cancer, the surgical team suspects an iatrogenic transection of the left lower ureter. The anesthesiologist administers 5 mL of Intravenous Indigo Carmine. Ten minutes later, blue fluid is seen pooling in the retroperitoneum. What is the surgical technique of choice for reconstructing an injury to the LOWER third of the ureter?",
-        "o": [
-            "Primary End-to-End Ureteroureterostomy",
-            "Ureteroneocystostomy (ureteral reimplantation into the bladder, often with a Psoas Hitch or Boari Flap)",
-            "Transureteroureterostomy crossing to the contralateral ureter",
-            "Permanent cutaneous ureterostomy"
-        ],
-        "a": 1,
-        "t": "Urological Surgery / Ureteral Reconstruction",
-        "e": "Injuries to the lower third of the ureter (distal to the iliac vessels) cannot be repaired with primary end-to-end ureteroureterostomy due to compromised distal blood supply and tension. The gold-standard reconstruction is Ureteroneocystostomy (re-implanting the healthy proximal ureter directly into the bladder dome with a non-refluxing tunnel). If tension exists, a Psoas Hitch (mobilizing the bladder to the psoas tendon) or Boari Flap is performed."
-    },
-    {
-        "q": "A 52-year-old male presents with dull bilateral flank pain, lower extremity edema, and progressive renal insufficiency. Intravenous urography (IVU) and abdominal CT demonstrate a dense, fibrous, fibro-inflammatory retroperitoneal plaque encasing the infrarenal abdominal aorta, inferior vena cava, and ureters, causing bilateral medial deviation of the middle third of the ureters. What is the diagnosis, and what systemic IgG subclass is commonly elevated?",
-        "o": [
-            "Retroperitoneal Fibrosis (Ormond's Disease); associated with IgG4-Related Disease.",
-            "Retroperitoneal Liposarcoma; associated with IgG1.",
-            "Pancreatic adenocarcinoma metastasis; associated with IgA.",
-            "Psoas abscess; associated with IgE."
-        ],
-        "a": 0,
-        "t": "Retroperitoneal Pathology / Ormond's Disease",
-        "e": "Retroperitoneal Fibrosis (Ormond's disease) is characterized by chronic fibrosing retroperitoneal inflammation that encases the abdominal aorta, IVC, and ureters. The classic radiological sign is MEDIAL deviation of the ureters with extrinsic hydronephrosis. Over 60% of idiopathic cases are a local manifestation of systemic IgG4-Related Disease (IgG4-RD). First-line medical therapy is high-dose systemic Corticosteroids combined with ureteral stenting."
-    },
-    {
-        "q": "A blunt trauma patient has a Grade IV Renal Injury according to the American Association for the Surgery of Trauma (AAST) scale (parenchymal laceration extending through the corticomedullary junction into the renal collecting system with urinary extravasation). The patient is hemodynamically stable. What is the evidence-based management strategy?",
-        "o": [
-            "Immediate emergency exploratory laparotomy and radical nephrectomy.",
-            "Non-operative management: strict bed rest, ICU monitoring, serial hematocrits, and retrograde ureteral stenting (Double-J stent) or percutaneous drainage if urinary extravasation fails to resolve.",
-            "Immediate renal artery embolization in all cases regardless of active blush.",
-            "Immediate open primary surgical renorrhaphy."
-        ],
-        "a": 1,
-        "t": "Urological Trauma / Renal Laceration",
-        "e": "Modern trauma guidelines strongly advocate for Non-Operative Management (NOM) in hemodynamically stable renal trauma, even for high-grade injuries (Grade IV). Stable Grade IV injuries with urinary extravasation are managed conservatively with bed rest, antibiotics, and ureteral stenting (JJ stent) to decompress the collecting system. Exploration frequently results in unnecessary nephrectomy. Hemodynamic instability or expanding pulsatile hematoma are the primary operative indications."
-    },
-    {
-        "q": "A child presents with recurrent, bilateral calcium oxalate monohydrate kidney stones, severe nephrocalcinosis, and renal insufficiency. 24-hour urine collection reveals massive urinary oxalate excretion (> 1.5 mmol/day) and glycolic aciduria. Genetic testing confirms an autosomal recessive mutation in the AGXT gene encoding alanine-glyoxylate aminotransferase. Which cutting-edge RNA interference (siRNA) therapeutic agent is approved to treat Primary Hyperoxaluria Type 1 (PH1)?",
-        "o": [
-            "Patisiran",
-            "Lumasiran (Oxlumo)",
-            "Givosiran",
-            "Inotersen"
-        ],
-        "a": 1,
-        "t": "Nephrolithiasis / Targeted Gene Therapy",
-        "e": "Primary Hyperoxaluria Type 1 (PH1) is a devastating autosomal recessive inborn error of metabolism caused by a defect in hepatic AGXT, leading to overproduction of toxic oxalate that precipitates as calcium oxalate nephrocalcinosis and systemic oxalosis. Lumasiran is an FDA-approved subcutaneous siRNA directed against hydroxyacid oxidase 1 (HAO1), which depletes the glycolate oxidase enzyme, reducing hepatic oxalate production."
-    },
-    {
-        "q": "A trauma patient following a high-speed vehicle impact presents with gross hematuria, suprapubic tenderness, and an inability to void. Retrograde cystography with 350 mL of water-soluble contrast confirms an INTRAPERITONEAL Bladder Rupture. Contrast outlines loops of bowel and settles in the paracolic gutters. What is the mandatory management difference between Intraperitoneal and Extraperitoneal bladder rupture?",
-        "o": [
-            "Intraperitoneal rupture is managed with Foley catheter drainage alone; Extraperitoneal requires emergent laparotomy.",
-            "Intraperitoneal bladder rupture mandates immediate exploratory laparotomy with formal surgical repair of the dome defect; Extraperitoneal bladder rupture is managed conservatively with large-bore Foley catheter decompression for 10–14 days.",
-            "Both types must be treated with percutaneous suprapubic drainage.",
-            "Both types require immediate total cystectomy."
-        ],
-        "a": 1,
-        "t": "Urological Trauma / Bladder Rupture",
-        "e": "Extraperitoneal rupture (85% of cases, associated with pelvic fractures) involves tears of the anterolateral bladder neck; contrast extravasates into the space of Retzius ('flame-like' pattern) and is treated conservatively with large-bore urethral catheter drainage. In contrast, Intraperitoneal rupture involves rupture of the peritonealized bladder dome due to hydrostatic force on a full bladder; urine leaks into the peritoneal cavity, causing chemical peritonitis and urosepsis, requiring emergent open/laparoscopic surgical repair."
-    },
-    {
-        "q": "A 28-year-old male presents with a persistent, rigid, exquisitely painful erection lasting 7 hours, with flaccid glans and corpus spongiosum. Cavernosal blood gas aspiration reveals: pH 6.95, pO2 18 mmHg, pCO2 82 mmHg (dark, ischemic blood). What type of priapism is this, and what is the first-line intracavernosal pharmacotherapy?",
-        "o": ["Non-ischemic (high-flow) priapism; treat with ice packs and observation.", "Ischemic (low-flow) veno-occlusive priapism; treat with immediate cavernosal aspiration followed by intracavernosal injection of Phenylephrine (diluted alpha-1 agonist).", "Neurological priapism; treat with IV Epinephrine.", "Arterial fistula; treat with emergent surgical shunt."
-        ],
-        "a": 1,
-        "t": "Urological Emergencies / Priapism",
-        "e": "Ischemic (low-flow) priapism is a compartment syndrome of the corpora cavernosa characterized by failed venous drainage, stasis, ischemia, acidosis (pH < 7.25), and extreme hypoxia (pO2 < 30 mmHg). It causes irreversible smooth muscle necrosis and erectile dysfunction if uncorrected within 24 hours. The first-line intervention is therapeutic aspiration followed by intracavernosal instillation of diluted Phenylephrine (an alpha-1 agonist that causes smooth muscle contraction, halting arterial inflow and forcing venous drainage)."
-    },
-    {
-        "q": "A 15-year-old boy presents with sudden, excruciating left scrotal pain of 3 hours' duration, accompanied by nausea and vomiting. Physical examination reveals an enlarged, exquisitely tender left testicle riding high in the scrotum with a transverse lie, and an absent ipsilateral Cremasteric Reflex. Elevating the scrotum fails to relieve the pain (negative Prehn's sign). What is the definitive management and time window?",
-        "o": ["Prescribe oral levofloxacin for epididymo-orchitis and follow up in 48 hours.", "Immediate surgical exploration and bilateral testicular orchiopexy within the 6-hour golden window to prevent testicular necrosis.", "Perform immediate manual needle aspiration of the hydrocele.", "Discharge home with scrotal support and NSAIDs."
-        ],
-        "a": 1,
-        "t": "Urological Emergencies / Testicular Torsion",
-        "e": "Testicular torsion is an absolute surgical emergency caused by twisting of the spermatic cord, compromising arterial inflow and venous drainage (associated with a 'bell-clapper' deformity). An absent cremasteric reflex is the most sensitive physical finding. Testicular salvage exceeds 90% if explored within the 6-hour golden window, but drops to <10% after 24 hours. Both the affected and contralateral testicles must undergo surgical fixation (bilateral orchiopexy)."
-    },
-    {
-        "q": "A 64-year-old patient with an extensive history of chronic phenacetin abuse and living in the Balkan peninsula presents with microhematuria. Retrograde pyelogram reveals a radiolucent 'filling defect' in the upper pole renal calyx. Cytology confirms high-grade Upper Tract Urothelial Carcinoma (UTUC). What is the gold-standard oncological surgical operation for non-metastatic high-grade UTUC?",
-        "o": ["Partial nephrectomy of the upper pole.", "Radical Nephroureterectomy with complete bladder cuff excision.", "Simple nephrectomy sparing the ureter.", "Ureteroscopic holmium laser ablation."
-        ],
-        "a": 1,
-        "t": "Urological Oncology / UTUC",
-        "e": "Upper Tract Urothelial Carcinoma involves the transitional cell lining of the renal pelvis or ureter. Because urothelial carcinoma displays 'field cancerization' (the entire urinary tract mucosa is primed for recurrence), leaving the distal ureteral stump carries a >30–70% recurrence rate in the remnant ureter. The definitive gold-standard radical cure is Radical Nephroureterectomy with complete en bloc excision of the distal ureter and its associated intramural Bladder Cuff."
-    },
-    {
-        "q": "A 58-year-old male with a 6 cm clear cell Renal Cell Carcinoma of the right kidney presents with fatigue and jaundice. Blood tests reveal elevated alkaline phosphatase (ALP), prolonged prothrombin time (PT), and elevated alpha-2 globulin, but normal AST/ALT and normal total bilirubin. Hepatic ultrasound and CT reveal completely normal liver parenchyma without metastases. Following radical nephrectomy, the liver enzymes completely normalize. What is this paraneoplastic phenomenon?",
-        "o": ["Budd-Chiari syndrome", "Stauffer's Syndrome (Reversible Hepatic Dysfunction)", "Fitz-Hugh-Curtis syndrome", "Mirizzi syndrome"
-        ],
-        "a": 1,
-        "t": "Urological Oncology / Paraneoplastic",
-        "e": "Stauffer's syndrome is a classic paraneoplastic manifestation of Renal Cell Carcinoma characterized by non-metastatic, reversible hepatic dysfunction. Tumor cells overproduce interleukin-6 (IL-6), which alters hepatic protein synthesis, causing elevated alkaline phosphatase, prolonged prothrombin time, and hepatosplenomegaly in the complete absence of hepatic metastatic disease. Removal of the primary renal tumor leads to complete resolution of the hepatic abnormalities."
-    },
-    {
-        "q": "A patient with bilateral complete ureteral obstruction secondary to retroperitoneal fibrosis undergoes emergent bilateral percutaneous nephrostomy tube placement. Over the next 24 hours, the patient's nephrostomies drain 12 liters of urine. What is the pathophysiological mechanism of 'Post-Obstructive Diuresis' (POD), and how must the nurse manage IV fluid replacement?",
-        "o": ["Acute glomerulonephritis; restrict all fluids.", "Severe pathological post-obstructive diuresis caused by accumulation of non-reabsorbable uremic solutes (urea) combined with medullary washout and down-regulation of aquaporin and sodium transporters in the collecting duct; replace only 50% to 75% of hourly urine output to avoid perpetuating the polyuria.", "Central diabetes insipidus; administer vasopressin immediately.", "Transfusion reaction; administer furosemide."
-        ],
-        "a": 1,
-        "t": "Renal Physiology / Post-Obstructive Diuresis",
-        "e": "Relief of severe bilateral urinary obstruction can trigger massive Post-Obstructive Diuresis (POD). Pathophysiology involves: (1) osmotic diuresis from massive accumulated urea, and (2) tubular epithelial insensitivity to ADH and downregulation of Na+/K+ channels (medullary washout). Crucially, the nurse must NOT replace 100% of the urine output with IV fluids, as 1:1 replacement will drive a continuous iatrogenic saline diuresis; replacing ~50–75% of losses allows the kidneys to gradually regain homeostatic control."
-    },
+    {"q":"A patient has excruciating left flank pain radiating to the groin. Non-contrast CT confirms a 4 mm stone, urine pH is 5.0, and KUB radiograph shows NO stone. What is the stone composition and treatment?","o":["Calcium oxalate; acidify urine.","Uric Acid stone (radiolucent on X-ray); urinary alkalinization using oral Potassium Citrate to target urine pH 6.5 to 7.0.","Struvite stone; acetohydroxamic acid.","Cystine stone; purine loading."],"a":1,"t":"Nephrolithiasis / Uric Acid Stones","e":"Uric acid stones are radiolucent on plain X-rays but visible on CT. Uric acid precipitates in acidic urine (pH < 5.5). Raising urine pH to 6.5–7.0 with Potassium Citrate dissolves the stone (chemolysis)."},
+    {"q":"A patient with a chronic Foley catheter and Proteus mirabilis infection has a staghorn calculus. Urine pH is 7.8. What is the chemical composition of this staghorn stone?","o":["Pure Calcium Phosphate","Magnesium Ammonium Phosphate (Struvite) and Carbonate Apatite","Pure Uric Acid","Calcium Oxalate Monohydrate"],"a":1,"t":"Nephrolithiasis / Struvite Stones","e":"Struvite stones form in alkaline urine (pH > 7.2) generated by urease-producing bacteria (Proteus) hydrolyzing urea into ammonia, creating branched staghorn calculi."},
+    {"q":"A patient with recurrent stones has hexagonal crystals, and the sodium cyanide-nitroprusside test turns magenta-purple. What is the genetic pathophysiology of Cystinuria?","o":["Defect in xanthine oxidase.","Autosomal recessive defect in the dibasic amino acid transporter (SLC3A1/SLC7A9), impairing reabsorption of Cystine, Ornithine, Lysine, and Arginine (COLA).","Excessive hepatic glyoxylate synthesis.","Intestinal hyperabsorption of calcium."],"a":1,"t":"Nephrolithiasis / Genetic","e":"Cystinuria is an autosomal recessive defect in the proximal tubular transporter for dibasic amino acids (COLA: Cystine, Ornithine, Lysine, Arginine). Insoluble cystine precipitates into hexagonal stones."},
+    {"q":"Which clinical finding is an EXPECTED normal post-procedure manifestation following Extracorporeal Shock Wave Lithotripsy (ESWL)?","o":["Gross hematuria clearing to pink within 24–48 hours, mild flank soreness, and localized flank ecchymosis.","Complete absence of hematuria.","Severe intractable colic and anuria for 48 hours.","Flank ecchymosis confirming retroperitoneal hematoma."],"a":0,"t":"Urological Procedures / ESWL","e":"Mild transient hematuria, localized cutaneous ecchymosis, and mild flank soreness are expected after ESWL. High fever, expanding hematoma, or severe colic with anuria (Steinstrasse) represent complications."},
+    {"q":"During a TURP under spinal anesthesia, the patient becomes confused, hypertensive (180/105), bradycardic (45 bpm), and serum sodium drops to 114 mEq/L. What is the cause of 'TURP Syndrome'?","o":["Latex catheter anaphylaxis.","Systemic intravascular absorption of hypotonic, non-conductive irrigation fluid (Glycine) through open prostatic venous sinuses, causing hypervolemia and dilutional hyponatremia.","Acute MI from spinal anesthesia.","Venous air embolism."],"a":1,"t":"Urological Emergencies / TURP Syndrome","e":"TURP syndrome occurs when hypotonic glycine irrigant enters open prostatic veins, producing acute fluid overload, dilutional hyponatremia, cerebral edema, and bradycardia. Treat with 3% hypertonic saline and diuretics."},
+    {"q":"A patient post-TURP with continuous bladder irrigation (CBI) has dark red drainage with large clots. Output ceases, and the patient has intense suprapubic pain. Priority nursing action?","o":["Increase the CBI irrigation flow to maximum.","Administer an IV opioid.","Manually irrigate the catheter using a 60 mL Toomey syringe and sterile saline to aspirate the obstructing clots.","Deflate the Foley balloon by 10 mL."],"a":2,"t":"Post-Op Care / CBI Management","e":"Never speed up CBI if outflow stops; fluid will accumulate and rupture the bladder. Stop inflow immediately and perform manual aspiration using a Toomey syringe to clear the clot blockage."},
+    {"q":"Following a TURP, a patient has severe cramping, urge to void, and urine leaking around the catheter, while clear pink urine drains continuously through the tubing. Diagnosis and treatment?","o":["Urethral rupture; emergent surgery.","Bladder spasms from mechanical balloon irritation; administer an antispasmodic (Oxybutynin or B&O suppository).","Urinary tract infection; Vancomycin.","Incomplete prostate resection; increase traction."],"a":1,"t":"Post-Op Care / Bladder Spasms","e":"The 30 mL Foley balloon irritates the trigone, triggering detrusor contractions (spasms) that force urine around the catheter. Once patency is verified, anticholinergics (Oxybutynin) relax the detrusor."},
+    {"q":"A 62-year-old male smoker presents with painless gross hematuria. What diagnostic investigation is the gold standard for definitive visualization and biopsy of Bladder Carcinoma?","o":["Renal ultrasound","Cystoscopy with bladder barbotage and transurethral biopsy","Intravenous Pyelogram","24-hour urine collection"],"a":1,"t":"Urological Oncology / Bladder Cancer","e":"Painless gross hematuria in smokers is bladder cancer until proven otherwise. Cystoscopy is the gold standard for optical visualization, mapping, and biopsy of the urothelium."},
+    {"q":"What home biohazard precaution must a patient follow after voiding following Intravesical BCG immunotherapy for bladder cancer?","o":["Boil all clothing for 4 hours.","Do not void for 24 hours.","Add 2 cups of household liquid bleach to the toilet bowl, let it stand for 15 to 20 minutes before flushing, and drink copious fluids.","No precautions needed."],"a":2,"t":"Urological Oncology / BCG Safety","e":"Intravesical BCG contains live attenuated Mycobacterium bovis. Patients must sit to void, disinfect the toilet with 2 cups of bleach for 15–20 minutes before flushing, and wash the perineum to avoid live bacterial exposure."},
+    {"q":"On postoperative Day 1 following creation of an Ileal Conduit, the nurse observes white mucus shreds in the drainage bag. What is the nurse's interpretation and action?","o":["Notify surgeon of fungal infection.","Expected normal physiological finding because the isolated ileal segment contains goblet cells that continue to secrete mucus.","Irrigate the stoma with sterile water under pressure.","Administer IV antifungal therapy."],"a":1,"t":"Urinary Diversion / Ileal Conduit","e":"The ileal segment used to construct the conduit retains its normal histological goblet cells, which continuously produce mucus. Mucus in the conduit appliance is an expected normal finding."},
+    {"q":"Why do urinary diversions constructed from resected intestinal segments (neobladders, ileal conduits) cause Hyperchloremic Metabolic Acidosis?","o":["The intestinal wall secretes hydrochloric acid directly into urine.","Intestinal enterocytes continuously reabsorb urinary ammonium (NH4+) and chloride (Cl-) in exchange for bicarbonate (HCO3-), depleting systemic alkali reserves.","Intestinal segments block renal potassium excretion.","Abdominal distension causes hypoventilation."],"a":1,"t":"Urinary Diversions / Metabolic Complications","e":"Intestinal mucosa in contact with urine exchanges luminal NH4+ and Cl- for cellular HCO3-. Chronic reabsorption of ammonium and chloride paired with bicarbonate loss produces hyperchloremic metabolic acidosis."},
+    {"q":"What self-care technique is MANDATORY for a patient with a continent cutaneous urinary diversion (Indiana Pouch) to maintain continence and avoid rupture?","o":["Wear an external collection bag continuously.","Perform Clean Intermittent Catheterization (CIC) of the stoma every 3 to 4 hours while awake.","Irrigate the stoma daily with vinegar.","Restrict fluids to < 1,000 mL/day."],"a":1,"t":"Urinary Diversions / Indiana Pouch","e":"An Indiana Pouch is an internal reservoir that does not drain into an external bag. Patients must perform Clean Intermittent Catheterization (CIC) every 3–4 hours to prevent reservoir overdistention and rupture."},
+    {"q":"A patient with a spinal cord injury at T1 has a spastic (reflexic) neurogenic bladder. What is the pathophysiology and preferred management strategy?","o":["Atonic flaccid bladder; Crede maneuver.","Loss of cerebral inhibition causing uninhibited detrusor contractions and Detrusor-Sphincter Dyssynergia (DSD); manage with Clean Intermittent Catheterization (CIC) plus anticholinergics.","Absence of reflexes; permanent Foley.","Primary tubular failure; dialysis."],"a":1,"t":"Neurogenic Bladder / Management","e":"Suprasacral lesions (above S2–S4) produce spasticity with dyssynergia (detrusor and sphincter contract simultaneously, generating high pressures). Anticholinergics relax the detrusor, and regular CIC drains the bladder safely."},
+    {"q":"In accordance with evidence-based CAUTI prevention bundles, how should Foley catheter tubing and bags be positioned?","o":["Secure catheter to inner thigh with slack; keep drainage bag strictly below the level of the bladder at all times, off the floor, with downhill flow.","Secure catheter to abdomen; hang bag on bed rail.","Disconnect bag twice daily for flushing.","Place bag on the floor for siphon action."],"a":0,"t":"Infection Control / CAUTI Prevention","e":"CAUTI bundles require securing the catheter to prevent urethral traction, maintaining a closed system, and keeping the collection bag below bladder level at all times (preventing retrograde urine reflux) off the floor."},
+    {"q":"A pelvic fracture patient has blood at the urethral meatus, a high-riding prostate, and butterfly perineal ecchymosis. Priority nursing action?","o":["Insert an 18 Fr Foley catheter under gentle pressure.","Withhold urethral catheterization immediately and arrange for emergency Retrograde Urethrography (RUG).","Perform suprapubic needle aspiration.","Irrigate the urethra with warm saline."],"a":1,"t":"Trauma / Urethral Disruption","e":"Blood at the meatus and a high-riding prostate indicate urethral disruption. Blind catheterization can convert a partial tear into a complete transection. Retrograde Urethrography must confirm urethral continuity first."},
+    {"q":"What is the strict volume and pressure parameter for percutaneous nephrostomy tube irrigation?","o":["Irrigate with 50 mL saline under steady pressure.","Irrigate with a maximum volume of 5 to 10 mL sterile normal saline using strict aseptic technique and gentle manual pressure, never forcing fluid.","Instill 30 mL sterile water with povidone-iodine.","Flush vigorously with 20 mL heparinized saline."],"a":1,"t":"Procedures / Nephrostomy Care","e":"The normal renal pelvis holds only 4–8 mL of fluid. Irrigating with >10 mL or using force risks pyelovenous backflow, severe pain, urosepsis, and rupture of the renal pelvis. Max volume is 5–10 mL gently."},
+    {"q":"A patient with a double-J ureteral stent reports dull flank ache that occurs exclusively during urination. What explains this symptom?","o":["Stent migration into the peritoneal cavity.","Retrograde transmission of elevated intravesical bladder pressure up the patent hollow stent into the renal pelvis during detrusor contraction.","Complete stent occlusion by stones.","Acute bacterial pyelonephritis."],"a":1,"t":"Urological Procedures / Stent Physiology","e":"Ureteral stents bypass the ureterovesical valve. During voiding, high detrusor pressure transmits retrogradely up the hollow stent lumen into the renal pelvis, producing expected, transient voiding flank pain."},
+    {"q":"How must a Coudé-tip catheter be oriented during insertion in an elderly male with benign prostatic hyperplasia?","o":["Curve pointing downward toward the rectum.","The curved tip must point UPWARD (anteriorly toward 12 o'clock / umbilicus) to navigate over the enlarged median prostatic lobe.","Rotate the catheter continuously during advancement.","Advance with eyelets facing laterally."],"a":1,"t":"Procedures / Catheterization","e":"A Coudé catheter has a tapered, curved tip designed to navigate over an enlarged median prostatic lobe. It must be inserted with the tip pointing anteriorly (upward toward 12 o'clock, aligned with the raised ridge on the funnel)."},
+    {"q":"A diabetic male presents with septic shock, excruciating perineal pain, dusky scrotal necrosis, and palpable crepitus. Diagnosis and management?","o":["Acute epididymo-orchitis; oral ciprofloxacin.","Fournier's Gangrene (necrotizing fasciitis); emergency radical surgical debridement and broad-spectrum IV antibiotics.","Strangulated hernia; manual reduction.","Contact dermatitis; topical steroids."],"a":1,"t":"Urological Emergencies / Fournier's","e":"Fournier's Gangrene is a life-threatening necrotizing fasciitis of the perineum/scrotum. Crepitus confirms gas-forming organisms. It requires emergency surgical debridement of all necrotic tissue and IV antibiotics."},
+    {"q":"A patient with Renal Cell Carcinoma presents with gross hematuria, a right flank mass, and a right-sided varicocele that DOES NOT decompress when lying supine. What does this indicate?","o":["Normal benign variant.","Tumor thrombus invasion of the Inferior Vena Cava (IVC) or right renal vein, blocking collateral gonadal drainage.","Epididymal infection.","Thoracic duct obstruction."],"a":1,"t":"Urological Oncology / RCC","e":"The right gonadal vein drains directly into the IVC. A right-sided varicocele that fails to decompress in the supine position indicates IVC or right renal vein obstruction, classically by RCC tumor thrombus."},
 
-    // ==========================================
     // --- SECTION 5: ADVANCED TRANSPLANT, PHARMACOGENOMICS & FLUID COMPLICATIONS (Q81 - Q100) ---
-    // ==========================================
-    {
-        "q": "A patient who underwent renal transplantation 6 weeks ago presents with ipsilateral lower extremity deep venous thrombosis, new-onset hydronephrosis on ultrasound, and rising serum creatinine. Ultrasonography reveals an 8 cm anechoic fluid collection compressing the external iliac vein and the transplanted ureter. Analysis of fluid aspirated from the collection reveals a creatinine level equal to serum creatinine. What surgical complication has occurred?",
-        "o": ["Urine leak (urinoma) from ureteral dehiscence", "Renal allograft Lymphocele", "Perinephric hematoma", "Acute allograft abscess"
-        ],
-        "a": 1,
-        "t": "Transplant Complications / Lymphocele",
-        "e": "A Lymphocele is an encysted collection of lymphatic fluid resulting from severed, unligated recipient iliac or donor renal hilar lymphatics. Because it is pure lymph, its creatinine and electrolyte concentrations are identical to serum (distinguishing it from a Urinoma, where fluid creatinine is markedly higher than serum creatinine). Large lymphoceles cause mass effect: external compression of the ureter (hydronephrosis) and iliac vein (DVT/leg edema). Treatment: laparoscopic peritoneal fenestration/marsupialization."
-    },
-    {
-        "q": "A renal allograft recipient on maintenance Tacrolimus, Mycophenolate Mofetil, and Prednisone presents at 1 year post-transplant with a persistent hematocrit of 56% (Normal 40–50%), headache, and plethora. Serum erythropoietin (EPO) levels are elevated. What is this entity, and which class of medications is the first-line pharmacotherapy of choice?",
-        "o": ["Polycythemia vera; treat with immediate phlebotomy and hydroxyurea.", "Post-Transplant Erythrocytosis (PTE); treat with ACE Inhibitors (e.g., Enalapril) or Angiotensin Receptor Blockers (ARBs).", "Dehydration; infuse 3 liters of normal saline.", "Renal artery thrombosis; administer thrombolytics."
-        ],
-        "a": 1,
-        "t": "Transplant Complications / PTE",
-        "e": "Post-Transplant Erythrocytosis (PTE) is defined as persistent hematocrit > 51% following renal transplantation (affecting 10–15% of recipients). It is driven by autonomous, dysregulated erythropoietin and insulin-like growth factor-1 (IGF-1) secretion from both the native and allograft kidneys, mediated by the renin-angiotensin system. ACE inhibitors or ARBs are the first-line medical therapy of choice; they directly suppress endogenous EPO secretion and lower hematocrit safely."
-    },
-    {
-        "q": "An Epstein-Barr Virus (EBV) seronegative patient (R-) receives a deceased-donor kidney from an EBV-seropositive donor (D+). Nine months post-transplant, the patient presents with persistent fever, weight loss, massive generalized lymphadenopathy, and high-titer EBV DNA on quantitative PCR. Biopsy confirms diffuse large B-cell Post-Transplant Lymphoproliferative Disorder (PTLD). What is the primary initial oncological intervention?",
-        "o": ["Immediate high-dose intravenous chemotherapy with CHOP.", "Prompt reduction or withdrawal of maintenance immunosuppressive therapy, accompanied by Rituximab (anti-CD20 monoclonal antibody) therapy.", "Immediate allograft nephrectomy and cessation of all medications.", "Local radiation therapy to the spleen."
-        ],
-        "a": 1,
-        "t": "Transplant Oncology / PTLD",
-        "e": "PTLD is a life-threatening complication of chronic immunosuppression, strongly driven by EBV. The greatest risk is in EBV-seronegative recipients receiving an EBV-seropositive donor graft (D+/R-). T-cells normally keep EBV-infected B-cell proliferation in check; under deep immunosuppression, uncontrolled B-cell expansion leads to lymphoma. The cornerstone initial step is REDUCTION of immunosuppressive therapy (restoring T-cell surveillance), followed by anti-CD20 targeted therapy (Rituximab)."
-    },
-    {
-        "q": "Belatacept (Nulojix) is an innovative costimulation blocker used as a maintenance immunosuppressant to avoid the nephrotoxic and cardiovascular adverse effects of Calcineurin Inhibitors (CNIs). What is its molecular mechanism of action, and which recipient cohort carries an FDA black-box warning prohibiting its use?",
-        "o": ["It blocks IL-2 receptor alpha chain; contraindicated in patients with diabetes.", "It is a soluble fusion protein (CTLA-4 linked to IgG1 Fc) that binds to CD80 and CD86 on antigen-presenting cells, blocking CD28 costimulation of T-cells; strictly contraindicated in EBV-seronegative recipients due to an extreme risk of fatal CNS PTLD.", "It inhibits inosine monophosphate dehydrogenase; contraindicated in pregnancy.", "It inhibits mTOR complex 1; contraindicated in hyperlipidemia."
-        ],
-        "a": 1,
-        "t": "Transplant Pharmacology / Belatacept",
-        "e": "T-cell activation requires two signals: Signal 1 (TCR binding to MHC-antigen) and Signal 2 (Costimulation: CD28 on T-cells binding CD80/CD86 on APCs). Belatacept binds CD80/CD86, selectively blocking Signal 2, providing effective rejection prophylaxis while preserving GFR and eliminating CNI arteriopathy. However, it carries a black-box warning: it is strictly CONTRAINDICATED in EBV-seronegative (or unknown) recipients because of an exceptionally high incidence of fatal central nervous system PTLD."
-    },
-    {
-        "q": "A patient with end-stage renal disease receives a deceased-donor kidney transplant after a prolonged Cold Ischemia Time of 34 hours. In the first 24 hours post-operatively, the patient produces only 40 mL of urine, and serum creatinine rises from 6.8 to 7.4 mg/dL, requiring hemodialysis on post-op Day 3. Renal biopsy shows extensive tubular cell sloughing into lumens with intact vascular architecture. What is the definition and primary cause of 'Delayed Graft Function' (DGF)?",
-        "o": ["Hyperacute rejection mediated by ABO antibodies.", "Delayed Graft Function (DGF), defined clinically as the requirement for dialysis within the first 7 days post-transplantation, primarily caused by ischemia-reperfusion injury and acute tubular necrosis.", "Calcineurin inhibitor vascular thrombosis.", "Ureteral transection."
-        ],
-        "a": 1,
-        "t": "Transplant / Delayed Graft Function",
-        "e": "Delayed Graft Function (DGF) is defined clinically as the need for dialysis within the first 7 days following kidney transplantation. The fundamental underlying pathology is severe Ischemia-Reperfusion Injury (IRI) resulting in Post-Transplant Acute Tubular Necrosis (ATN). Major risk factors include prolonged cold ischemia time (>24–30 hours), donation after circulatory death (DCD), and donor age > 60."
-    },
-    {
-        "q": "All kidney transplant recipients are initiated on Pneumocystis jirovecii Pneumonia (PCP/PJP) prophylaxis for the first 6 to 12 months post-transplant. A patient taking daily Trimethoprim-Sulfamethoxazole (TMP-SMX) shows a baseline creatinine rise from 1.0 to 1.3 mg/dL without changes in BUN or GFR measured by inulin clearance. What pharmacological phenomenon explains this benign creatinine elevation?",
-        "o": ["Trimethoprim induces severe acute interstitial nephritis in all recipients.", "Trimethoprim competitively inhibits the organic cation transporter (OCT2/MATE1) in the proximal tubule, blocking the active tubular secretion of creatinine without altering true Glomerular Filtration Rate (GFR).", "Sulfamethoxazole precipitates in the collecting ducts.", "TMP-SMX causes afferent arteriolar constriction."
-        ],
-        "a": 1,
-        "t": "Pharmacology / Pseudonephrotoxicity",
-        "e": "Serum creatinine is primarily cleared by glomerular filtration, but 10–15% is eliminated via active proximal tubular secretion mediated by organic cation transporters (OCT2, MATE1). Trimethoprim is an organic base that competitively inhibits OCT2, blocking tubular creatinine secretion. This causes an artificial, benign ~20–30% rise in serum creatinine ('pseudo-renal failure') without decreasing true GFR. Other drugs causing this include Cimetidine and Ranolazine."
-    },
-    {
-        "q": "A patient who underwent a renal transplant 3 months ago presents with progressive allograft dysfunction. Renal ultrasound shows marked hydronephrosis of the transplanted kidney. The transplant surgeon notes that the ureteral blood supply in a transplanted kidney is uniquely fragile. What is the sole arterial blood supply to the donor ureter in a renal allograft?",
-        "o": ["The recipient's internal iliac artery via collateral neo-vascularization.", "Branches originating exclusively from the donor renal artery (ureteric branches from the main renal artery), which can become ischemic if the distal ureter is dissected too aggressively.", "The donor inferior mesenteric artery.", "Direct perfusion from the bladder mucosa."
-        ],
-        "a": 1,
-        "t": "Transplant Anatomy / Surgical Complications",
-        "e": "In native anatomy, the ureter receives a segmental blood supply from the renal, gonadal, aorta, iliac, and vesical arteries. During donor organ harvesting, all collateral vessels are severed; the transplant ureter relies ENTIRELY on a single fragile arterial supply: the ureteric branch of the donor renal artery descending within the periureteral fat. Excessive stripping of periureteral adventitia during procurement causes distal ureteral ischemia, necrosis, stenosis, and breakdown at the ureteroneocystostomy."
-    },
-    {
-        "q": "A patient with acute oliguric rejection of a kidney transplant fails to respond to 3 consecutive daily doses of 1,000 mg IV Methylprednisolone. Allograft biopsy reveals Banff Grade IIB Acute T-cell Mediated Rejection with severe intimal arteritis ('endarteritis') characterized by inflammatory mononuclear cells beneath the vascular endothelium. What is the evidence-based second-line rescue immunosuppressive therapy?",
-        "o": ["Switching from Tacrolimus to oral Cyclosporine.", "Lymphocyte-depleting antibody therapy with Rabbit Anti-Thymocyte Globulin (rATG / Thymoglobulin).", "Oral Azathioprine monotherapy.", "Emergency graft nephrectomy in all cases."]
-        ],
-        "a": 1,
-        "t": "Transplant Immunology / Rejection Therapy",
-        "e": "Banff Grade II and III Acute Cellular Rejection involve vascular intimal arteritis (endarteritis) or transmural arterial necrosis, which carries a severe risk of graft loss. Cases that are refractory to initial high-dose pulse corticosteroids are designated 'steroid-resistant acute rejection'. The standard of care is rescue therapy with lymphocyte-depleting polyclonal antibodies, specifically Rabbit Anti-Thymocyte Globulin (rATG / Thymoglobulin), which causes rapid profound depletion of circulating T-cells."
-    },
-    {
-        "q": "A diabetic patient presents with severe hyperosmolar hyperglycemia. The serum sodium is reported as 124 mEq/L, and blood glucose is 1,000 mg/dL. Using the standard Katz correction factor (measured sodium increases by 1.6 mEq/L for every 100 mg/dL rise in glucose above 100 mg/dL), what is the patient's 'Corrected Serum Sodium'?",
-        "o": ["124.0 mEq/L", "131.2 mEq/L", "138.4 mEq/L", "145.6 mEq/L"],
-        "a": 2,
-        "t": "Fluid & Electrolytes / Mathematical Calculation",
-        "e": "Glucose is an effective osmole that does not enter cells freely without insulin. High extracellular glucose draws free water from the intracellular compartment into the vascular space, causing dilutional pseudohyponatremia. Excess glucose = 1,000 - 100 = 900 mg/dL (or 9 increments of 100). Sodium depression = 9 x 1.6 = 14.4 mEq/L. Corrected Sodium = Measured Na (124) + 14.4 = 138.4 mEq/L (the patient actually has a normal true sodium)."
-    },
-    {
-        "q": "A 55 kg female patient with hypernatremic dehydration has a serum sodium of 168 mEq/L. What is the patient's Total Body Water (TBW), and what is her calculated Free Water Deficit [Formula: FWD = TBW x ((Serum Na / 140) - 1)]?",
-        "o": [
-            "TBW is 27.5 L; Free Water Deficit is 5.5 Liters.",
-            "TBW is 33.0 L; Free Water Deficit is 8.2 Liters.",
-            "TBW is 22.0 L; Free Water Deficit is 3.1 Liters.",
-            "TBW is 40.0 L; Free Water Deficit is 10.0 Liters."
-        ],
-        "a": 0,
-        "t": "Fluid & Electrolytes / Free Water Calculation",
-        "e": "In adult females, TBW is approximately 50% of lean body weight (0.50 x 55 kg = 27.5 Liters). Free Water Deficit = 27.5 x [(168 / 140) - 1] = 27.5 x [1.20 - 1] = 27.5 x 0.20 = 5.5 Liters. The patient requires 5.5 Liters of free water (plus maintenance fluids and ongoing losses) administered slowly over 48 hours to correct hypernatremia without inducing cerebral edema."
-    },
-    {
-        "q": "To determine whether a patient's hyperkalemia is caused by hypoaldosteronism versus renal tubular resistance, the nephrologist calculates the Transtubular Potassium Gradient [TTKG = (Urine K x Serum Osmolality) / (Serum K x Urine Osmolality)]. When is the TTKG validity strictly invalid?",
-        "o": ["When the serum potassium is < 4.0 mEq/L.", "When the urine is not concentrated (Urine Osmolality < Serum Osmolality) or Urine Sodium is < 25 mEq/L, because distal sodium delivery and water reabsorption in the collecting duct are inadequate to drive potassium secretion.", "When the patient is taking loop diuretics.", "When the blood pH is greater than 7.45."
-        ],
-        "a": 1,
-        "t": "Renal Diagnostics / TTKG Physiology",
-        "e": "TTKG estimates the potassium gradient across the cortical collecting duct driven by aldosterone. However, modern physiology proves that TTKG calculation is valid ONLY if two conditions are met: (1) Urine Osmolality must be greater than Serum Osmolality (ensuring ADH is active and water is being reabsorbed in medullary collecting ducts), and (2) Urine Sodium must be ≥ 25 mEq/L (ensuring adequate distal sodium delivery to power the ENaC-mediated lumen-negative potential for K+ secretion)."
-    },
-    {
-        "q": "A patient with severe acute salicylate (aspirin) overdose presents with hyperventilation, tinnitus, and a mixed respiratory alkalosis and high anion gap metabolic acidosis. Serum salicylate level is 75 mg/dL. The physician orders an IV infusion of Sodium Bicarbonate. What is the biophysical mechanism of 'Ion Trapping' achieved by alkalinizing the urine?",
-        "o": ["Bicarbonate breaks down salicylate into inert water and carbon dioxide.", "Salicylate is a weak acid with a pKa of 3.0; raising urine pH converts non-ionized lipid-soluble salicylic acid into ionized (charged) salicylate, which cannot cross the lipid tubular cell membrane and is trapped in the urine for excretion.", "Sodium bicarbonate stimulates proximal tubular filtration.", "Bicarbonate accelerates hepatic esterase metabolism."
-        ],
-        "a": 1,
-        "t": "Toxicology / Ion Trapping Mechanism",
-        "e": "Salicylic acid is a weak acid ($HA \rightleftharpoons H^+ + A^-$). Uncharged, non-ionized molecules ($HA$) cross cell membranes easily, allowing filtered drug to be reabsorbed back into the blood. Raising urinary pH to 7.5–8.0 by infusing Sodium Bicarbonate shifts the equilibrium to the ionized form ($A^-$). Charged ions cannot cross the lipid bilayer of tubular cells; they become 'trapped' in the tubular lumen and are rapidly cleared in urine. Alkalinizing blood also keeps salicylate out of the brain."
-    },
-    {
-        "q": "In hemodialysis kinetics, why is the single-pool Kt/V (spKt/V) systematically higher than the equilibrated Kt/V (eKt/V)?",
-        "o": ["Single-pool Kt/V includes peritoneal clearance.", "Post-Dialysis Urea Rebound (PDUR): spKt/V assumes urea is cleared from a single homogenous body compartment, but in reality, urea clears faster from extracellular water than intracellular water; after dialysis stops, intracellular urea redistributes into the blood over 30–60 minutes, rebounding the urea concentration.", "Equilibrated Kt/V is altered by glucose infusion.", "The dialyzer loses membrane area over time."
-        ],
-        "a": 1,
-        "t": "Hemodialysis Kinetics / Urea Rebound",
-        "e": "The human body consists of multiple fluid compartments. During hemodialysis, urea is cleared rapidly from the well-perfused intravascular/extracellular compartment. Urea in less-perfused intracellular compartments (skeletal muscle) lags behind. When dialysis finishes, urea diffuses out of cells into the blood, causing Post-Dialysis Urea Rebound (PDUR) that raises blood urea by 10–15% within 30–60 minutes. Equilibrated Kt/V (eKt/V) accounts for this rebound, making it ~0.2 units lower than spKt/V."
-    },
-    {
-        "q": "A patient on chronic hemodialysis with severe secondary hyperparathyroidism and vascular calcification is prescribed a low-calcium dialysate (1.5 mEq/L / 2.5 mEq/L Ca). What is the potential acute cardiovascular risk of dialyzing against a low-calcium bath?",
-        "o": ["Severe hypercalcemic crisis", "Acute intradialytic QTc interval prolongation, increased risk of ventricular arrhythmias, and intradialytic hypotension secondary to decreased myocardial contractility.", "Sudden coronary artery thrombosis", "Metabolic alkalosis"
-        ],
-        "a": 1,
-        "t": "Dialysate Composition / Complications",
-        "e": "Using a low-calcium dialysate bath (e.g., 2.25 or 2.5 mEq/L) creates an efflux gradient that pulls calcium out of the patient's blood into the dialysate to lower the calcium-phosphate product. However, acute reduction in serum ionized calcium prolongs the cardiac action potential (QTc prolongation, increasing risk for Torsades de Pointes/ventricular fibrillation) and reduces myocardial contractility and vascular tone, precipitating severe intradialytic hypotension."
-    },
-    {
-        "q": "A patient on maintenance hemodialysis using a re-used synthetic high-flux dialyzer develops sudden dyspnea, chest tightness, severe back pain, and hypotension within 3 minutes of initiating dialysis. The dialyzer was reprocessed using Peracetic Acid / Hydrogen Peroxide (Renalin). What complication has occurred?",
-        "o": ["Air embolism", "Hemodialyzer Disinfectant Exposure / Re-use First-Use Type A reaction caused by residual chemical germicide leaching into the blood path.", "Uremic pericarditis", "Pyrogen endotoxin reaction"
-        ],
-        "a": 1,
-        "t": "Hemodialysis Complications / Re-use Syndrome",
-        "e": "When dialyzers are reprocessed, germicides (such as Peracetic acid/Renalin, formaldehyde) are used for sterilization and must be thoroughly rinsed out before the next treatment. If inadequate saline rinsing occurs, residual germicide enters the patient's circulation at the start of the session, triggering an immediate, severe Type A hypersensitivity reaction with intense burning at access, back/chest pain, bronchospasm, and shock within minutes."
-    },
-    {
-        "q": "A peritoneal dialysis patient performs a 4-hour Peritoneal Equilibration Test (PET). The Dialysate-to-Plasma Creatinine concentration ratio at 4 hours (D/P Cr 4h) is 0.88 (High Transporter). What does a 'High Transporter' status imply regarding ultrafiltration and the optimal modality of peritoneal dialysis?",
-        "o": ["The patient clears solutes poorly; requires continuous ambulatory peritoneal dialysis (CAPD) with 8-hour dwells.", "The peritoneal membrane is hyperpermeable and rapidly absorbs dextrose, losing the osmotic gradient early; the patient suffers poor ultrafiltration on long dwells and must be managed on Automated Peritoneal Dialysis (APD / Cycler) with frequent, short dwells.", "The patient has zero peritoneal blood flow.", "The patient must be switched to hemodialysis immediately."
-        ],
-        "a": 1,
-        "t": "Peritoneal Dialysis / PET Test",
-        "e": "A high D/P Cr ratio (> 0.81) defines a 'High Transporter'. Solutes diffuse rapidly across the peritoneal membrane, but the glucose in the dialysate is also absorbed into the bloodstream very quickly. The osmotic gradient is lost within 2–3 hours; on long dwells (like daytime CAPD), water is reabsorbed back into the body, causing fluid overload. High transporters require Automated Peritoneal Dialysis (APD) with frequent, short-cycle nocturnal dwells to maintain ultrafiltration."
-    },
-    {
-        "q": "A patient with refractory calcium oxalate kidney stones has a 24-hour urine collection showing severe Hypocitraturia (urinary citrate = 85 mg/day; Normal > 320 mg/day). What is the physiological role of urinary citrate in inhibiting kidney stone formation, and what is the drug of choice?",
-        "o": ["Citrate acidifies the urine to dissolve stones; treat with ascorbic acid.", "Citrate chelates calcium in the tubular lumen, forming a soluble calcium citrate complex that prevents calcium from binding to oxalate or phosphate, and directly inhibits calcium crystal agglomeration; treat with oral Potassium Citrate.", "Citrate destroys oxalate molecules; treat with allopurinol.", "Citrate blocks intestinal purine absorption; treat with probenecid."
-        ],
-        "a": 1,
-        "t": "Nephrolithiasis / Citrate Physiology",
-        "e": "Citrate is the most powerful endogenous inhibitor of calcium stone crystallization in human urine. It binds (chelates) ionic calcium, forming soluble calcium-citrate complexes that dramatically reduce free calcium available to pair with oxalate or phosphate. It also physically prevents crystal nucleation and growth. Intracellular acidosis (from hypokalemia or high animal protein diet) upregulates proximal tubular citrate reabsorption, causing hypocitraturia. Oral Potassium Citrate replenishes urinary citrate."
-    },
-    {
-        "q": "A patient with a continent urinary reservoir (Kock Pouch) develops a severe vitamin deficiency 3 years post-operatively, presenting with macrocytic anemia, hypersegmented neutrophils, and peripheral neuropathy with loss of vibratory sense. What vitamin deficiency has occurred, and why?",
-        "o": ["Vitamin B1 (Thiamine) deficiency from decreased gastric acid.", "Vitamin B12 (Cobalamin) deficiency; the reservoir was constructed from a resected 60 cm segment of terminal ileum, where intrinsic factor-vitamin B12 complexes are exclusively absorbed.", "Folate deficiency due to bacterial overgrowth.", "Vitamin D deficiency from lack of sunlight exposure."
-        ],
-        "a": 1,
-        "t": "Urinary Diversions / Nutritional Complications",
-        "e": "Continent urinary diversions (Kock pouch, Indiana pouch, Studer neobladder) require surgical resection of 50 to 60 cm of terminal ileum. Because the terminal ileum is the exclusive anatomical site equipped with cubam receptors to absorb the Intrinsic Factor-Vitamin B12 complex, resecting this segment permanently impairs vitamin B12 absorption. Liver B12 stores last 2–4 years; after that, macrocytic megaloblastic anemia and subacute combined degeneration of the spinal cord occur unless lifelong parenteral B12 is given."
-    },
-    {
-        "q": "A patient who underwent a radical prostatectomy 6 months ago reports continuous, involuntary dribbling of urine when coughing, laughing, or lifting heavy objects. Urodynamic testing demonstrates normal detrusor compliance without involuntary bladder contractions, but a markedly reduced Abdominal Leak Point Pressure (ALPP < 60 cmH2O). What type of urinary incontinence is this?",
-        "o": ["Urge Incontinence / Detrusor Overactivity", "Intrinsic Sphincteric Deficiency (ISD) / Stress Urinary Incontinence", "Overflow Incontinence secondary to urethral stricture", "Functional Incontinence"
-        ],
-        "a": 1,
-        "t": "Voiding Dysfunction / Incontinence",
-        "e": "Post-prostatectomy incontinence is predominantly Stress Urinary Incontinence caused by Intrinsic Sphincteric Deficiency (ISD) resulting from surgical trauma or denervation of the external urethral rhabdosphincter. Urodynamic confirmation demonstrates an Abdominal Leak Point Pressure (ALPP) < 60 cmH2O (loss of urine at very low abdominal pressures without detrusor contraction). Pelvic floor muscle training is first-line; an artificial urinary sphincter (AUS) is the definitive surgical solution."
-    },
-    {
-        "q": "An 8-year-old child with minimal change nephrotic syndrome in relapse is receiving high-dose oral Prednisone. The mother asks why the child has gained weight and has swollen, rounded cheeks. What is the classic cushingoid appearance, and what mandatory infection prophylaxis is indicated in children receiving prolonged high-dose corticosteroid therapy?",
-        "o": ["Addisonian hyperpigmentation; administer annual live MMR vaccine.", "Cushingoid facies ('moon face') from glucocorticoid-induced adipose redistribution; co-prescribe daily Trimethoprim-Sulfamethoxazole (TMP-SMX) for Pneumocystis jirovecii prophylaxis and avoid all live virus vaccines.", "Renal failure anasarca; administer loop diuretics exclusively.", "Hyperthyroidism; administer propylthiouracil."
-        ],
-        "a": 1,
-        "t": "Pediatric Nephrology / Steroid Safety",
-        "e": "High-dose corticosteroid therapy for nephrotic syndrome alters lipid metabolism, causing facial fat deposition ('moon facies'), buffalo hump, and abdominal striae. High-dose steroids cause deep cell-mediated immunosuppression; live viral vaccines (Varicella, MMR) are strictly CONTRAINDICATED due to the risk of vaccine-strain viral disease. Prophylaxis against opportunistic Pneumocystis jirovecii with low-dose TMP-SMX is frequently indicated in prolonged courses."
-    }
+    {"q":"Within 15 minutes of vascular unclamping during a kidney transplant, the graft becomes cyanotic, mottled, flaccid, and anuric. What type of rejection is occurring?","o":["Acute cellular rejection","Hyperacute Rejection mediated by pre-existing anti-HLA or ABO donor-specific antibodies triggering complement activation and diffuse microvascular thrombosis.","Acute antibody-mediated rejection","Chronic allograft vasculopathy"],"a":1,"t":"Transplant Immunology / Rejection","e":"Hyperacute rejection occurs within minutes post-reperfusion due to preformed donor-specific antibodies binding graft endothelium, triggering complement-mediated microvascular thrombosis. The graft cannot be saved and must be excised."},
+    {"q":"Three weeks post-transplant, a patient's creatinine rises to 2.3 mg/dL with oliguria and graft tenderness. Biopsy reveals interstitial lymphocytic infiltration with tubular basement membrane invasion ('Tubulitis'). Diagnosis and first-line therapy?","o":["Hyperacute rejection; graft nephrectomy.","Acute Cellular Rejection (T-cell mediated); treat with high-dose intravenous pulsed Methylprednisolone (500–1000 mg IV daily for 3 days).","BK virus nephropathy; increase tacrolimus.","Calcineurin inhibitor toxicity; increase MMF."],"a":1,"t":"Transplant Immunology / ACR","e":"Acute Cellular Rejection (ACR) involves T-cell tubulitis and interstitial inflammation. First-line therapy is high-dose pulsed IV Methylprednisolone for 3 days; steroid-resistant cases receive anti-thymocyte globulin."},
+    {"q":"A kidney recipient at 2 months post-op has allograft dysfunction, positive Donor-Specific Antibodies (DSA), peritubular capillaritis, and strong C4d deposition. Diagnosis and multimodal therapy?","o":["Acute Cellular Rejection; oral prednisone.","Acute Antibody-Mediated Rejection (ABMR); treat with Plasmapheresis (to remove DSAs) combined with IVIG and Rituximab.","CNI arteriolopathy; switch to Cyclosporine.","CMV nephritis; Ganciclovir."],"a":1,"t":"Transplant Immunology / ABMR","e":"ABMR is diagnosed by allograft dysfunction, circulating DSAs, microvascular inflammation, and C4d complement split-product deposition. Treatment mandates Plasmapheresis to clear antibodies, plus IVIG and Rituximab."},
+    {"q":"A renal transplant recipient on Tacrolimus presents with tremors, hypertension, creatinine rising to 1.8 mg/dL, K+ 5.4, and trough level 18 ng/mL (Target 5–10). What is the mechanism of CNI nephrotoxicity?","o":["Podocyte immune destruction.","Reversible, dose-dependent vasoconstriction of the afferent glomerular arteriole, reducing renal blood flow and GFR.","Intratubular drug precipitation.","Interstitial eosinophilic nephritis."],"a":1,"t":"Pharmacology / CNI Toxicity","e":"Calcineurin inhibitors (Tacrolimus/Cyclosporine) cause acute, reversible nephrotoxicity by inducing intense afferent arteriolar vasoconstriction (upregulating endothelin, suppressing nitric oxide), lowering GFR. Reducing the dose reverses this."},
+    {"q":"A transplant recipient on Tacrolimus is prescribed oral Clarithromycin for bronchitis. Five days later, the patient develops acute renal failure and severe tremors. Why did Clarithromycin precipitate Tacrolimus toxicity?","o":["Clarithromycin displaces tacrolimus from albumin.","Clarithromycin is a potent CYP3A4 and P-glycoprotein inhibitor, shutting down Tacrolimus metabolism and causing toxic drug accumulation.","Clarithromycin damages collecting ducts.","Tacrolimus accelerates clarithromycin clearance."],"a":1,"t":"Pharmacology / Drug Interactions","e":"Tacrolimus is metabolized by hepatic and intestinal CYP3A4. Macrolides (Clarithromycin, Erythromycin) potently inhibit CYP3A4, causing massive Tacrolimus accumulation and acute toxic nephrotoxicity and neurotoxicity."},
+    {"q":"A transplant patient on Mycophenolate Mofetil (MMF) reports persistent watery diarrhea (6–8 stools/day) and abdominal cramps. Infectious workups are negative. What is the cause of this GI complication?","o":["Mesenteric rejection.","Direct gastrointestinal mucosal toxicity and enterocyte denudation caused by MMF, requiring dose reduction or conversion to Enteric-Coated Mycophenolate Sodium.","Tacrolimus gastroparesis.","Gluten intolerance from steroids."],"a":1,"t":"Pharmacology / MMF Toxicity","e":"Enterocytes rely on de novo purine synthesis for mucosal renewal. MMF inhibits inosine monophosphate dehydrogenase (IMPDH), causing mucosal villous blunting, erosive gastritis, and severe non-infectious diarrhea."},
+    {"q":"Four months post-transplant, a recipient has fever, leukopenia (WBC 2,200/μL), and CMV viremia (>100,000 copies/mL). What is the first-line intravenous antiviral therapy?","o":["Intravenous Acyclovir","Intravenous Ganciclovir (or high-dose oral Valganciclovir)","Intravenous Oseltamivir","Intravenous Foscarnet"],"a":1,"t":"Transplant Infections / CMV","e":"Tissue-invasive CMV disease (leukopenia, hepatitis, pneumonitis) is treated with intravenous Ganciclovir (renally adjusted) or oral Valganciclovir, accompanied by reduction in background immunosuppression."},
+    {"q":"A transplant recipient's urine cytology reveals 'Decoy Cells' with enlarged intranuclear inclusions, and plasma PCR confirms BK Polyomavirus DNA. What is the primary treatment for BK Virus Nephropathy?","o":["High-dose Cidofovir monotherapy.","Stepwise REDUCTION of maintenance immunosuppressive therapy (lowering Tacrolimus and stopping MMF) to restore host antiviral immunity.","Pulsed IV Methylprednisolone for 3 days.","Urgent graft nephrectomy."],"a":1,"t":"Transplant Infections / BK Virus","e":"BK virus reactivates under intense immunosuppression. The proven first-line therapy is reducing maintenance immunosuppression (cutting MMF, lowering CNI targets) to allow the patient's own T-cells to clear viral replication."},
+    {"q":"In the immediate post-operative period following living-donor kidney transplant, the patient produces 1,200 mL of urine in the first hour. What drives this polyuria, and how are IV fluids managed?","o":["Acute rejection; restrict fluids to 500 mL/day.","Uremic solute diuresis (accumulated pre-transplant urea) and tubular stunning; replace fluid 1:1 hourly with 0.45% or 0.9% Normal Saline based on output.","Diabetes insipidus; administer DDAVP.","Diuretic phase of ATN; administer furosemide."],"a":1,"t":"Transplant Post-Op Care / Fluid Management","e":"Accumulated urea creates an osmotic diuresis combined with transient tubular insensitivity to ADH. The nurse must replace urine output milliliter-for-milliliter (1:1 replacement) hourly to prevent severe hypovolemic shock and graft thrombosis."},
+    {"q":"Three hours post-transplant, urine output plummets from 800 mL/hr to 0 mL/hr. The patient has excruciating graft swelling, pain, and BP 190/105. What vascular emergency must be ruled out via emergent Doppler ultrasound?","o":["Allograft pyelonephritis","Renal Vein Thrombosis (RVT) or Renal Artery Thrombosis of the graft","Peritoneal dialysate leak","Lymphocele compressing bladder"],"a":1,"t":"Transplant Emergencies / Vascular","e":"Sudden complete anuria with acute graft swelling and pain is an absolute surgical emergency indicating Renal Vein Thrombosis. Doppler ultrasound must be done immediately, followed by emergent thrombectomy to salvage the graft."},
+    {"q":"In correcting severe chronic Hyponatremia (108 mEq/L) with 3% Hypertonic Saline, what is the MAXIMUM safe limit for raising serum sodium in the first 24 hours to prevent Central Pontine Myelinolysis?","o":["No more than 6 to 8 mEq/L total in 24 hours.","Raise sodium by 15 to 20 mEq/L in 12 hours.","Normalize sodium to 135 mEq/L within 24 hours.","Rapid boluses until sodium reaches 140 mEq/L."],"a":0,"t":"Electrolyte Emergencies / Sodium","e":"Overly rapid correction of chronic hyponatremia dehydrates brain cells, causing Osmotic Demyelination Syndrome (Central Pontine Myelinolysis). Guidelines strictly limit correction to <= 6–8 mEq/L in 24 hours."},
+    {"q":"Why must severe hypernatremia (172 mEq/L) be corrected slowly with IV D5W (reducing sodium by no more than 10 to 12 mEq/L per 24 hours)?","o":["Rapid correction causes hyperkalemic ventricular fibrillation.","Brain cells synthesize 'idiogenic osmoles'; rapid reduction in plasma sodium causes water to rush into brain cells, causing acute cerebral edema, seizures, and herniation.","Shuts down aldosterone secretion permanently.","Precipitates acute pancreatitis."],"a":1,"t":"Electrolyte Emergencies / Hypernatremia","e":"Brain cells adapt to hypernatremia by creating idiogenic osmoles. Rapid water replacement drops extracellular osmolality faster than brain osmoles dissipate, driving water into brain cells and causing fatal cerebral edema."},
+    {"q":"A patient with severe hypokalemia (2.6 mEq/L) fails to respond to 120 mEq of IV potassium chloride over 24 hours. Which secondary electrolyte MUST be checked and corrected before potassium can normalize?","o":["Serum Sodium","Serum Magnesium (correcting Hypomagnesemia is mandatory)","Serum Phosphate","Serum Bicarbonate"],"a":1,"t":"Electrolyte Disorders / Interdependence","e":"Magnesium is required for the Na+/K+ ATPase pump and normally inhibits ROMK channels in collecting ducts. Hypomagnesemia causes unchecked renal potassium wasting, rendering hypokalemia refractory to replacement."},
+    {"q":"A hyperventilating patient with acute respiratory alkalosis (pH 7.62) develops carpopedal spasms and positive Chvostek's sign despite normal total serum calcium (9.2 mg/dL). What explains tetany in acute alkalosis?","o":["Alkalosis activates sodium channels directly.","Alkalosis causes H+ ions to dissociate from albumin to buffer blood; newly freed negative albumin sites aggressively bind ionized Calcium, causing a critical drop in free active ionized calcium.","Alkalosis blocks PTH release instantly.","Albumin wastes calcium into tubules."],"a":1,"t":"Acid-Base & Electrolyte Physiology","e":"In alkalosis, hydrogen ions dissociate from albumin. This exposes negative binding sites that bind free ionized Calcium (iCa2+). The resulting acute drop in active ionized calcium destabilizes neuronal membranes, precipitating tetany."},
+    {"q":"To differentiate SIADH from Cerebral Salt Wasting (CSW) in a hyponatremic neurosurgical patient with high urine sodium, which clinical parameter is definitive?","o":["Serum osmolality (both are low)","Volume Status: SIADH is clinically EUVOLEMIC (normal/high CVP); CSW is clinically HYPOVOLEMIC (hypotension, flat neck veins, low CVP < 4 cmH2O).","Urine specific gravity (both are high)","Urine sodium (both are high)"],"a":1,"t":"Fluid & Electrolyte Differentials","e":"Both have hypotonic hyponatremia and high urine sodium. The definitive discriminator is volume status: SIADH is euvolemic (treat with fluid restriction); CSW is true hypovolemia from renal salt wasting (treat with saline hydration)."},
+    {"q":"An ICU patient with septic shock and AKI undergoes a 'Passive Leg Raise' (PLR) test for fluid responsiveness. What defines a positive test?","o":["Patient lies flat, legs elevated for 5 minutes; urine output doubles.","Transitioning from 45-degree semi-recumbent to supine with legs elevated 45 degrees for 60–90 seconds increases Stroke Volume or Cardiac Output >= 10%.","Blood pressure rises by 30 mmHg in Trendelenburg.","Heart rate drops by 20 bpm upon standing."],"a":1,"t":"Hemodynamics / PLR Test","e":"Passive Leg Raise shifts ~300–450 mL of blood into the heart (an auto-fluid bolus). A transient increase in Stroke Volume or Cardiac Output >= 10% within 60–90 seconds confirms fluid responsiveness without giving fluid."},
+    {"q":"A cirrhotic patient with tense ascites has serum creatinine rise to 3.4 mg/dL over 4 days with FENa < 0.1%, failing a 48-hour albumin challenge. Diagnosis and pharmacotherapy?","o":["Acute Tubular Necrosis; IV Furosemide.","Hepatorenal Syndrome (HRS-AKI); Intravenous Terlipressin (or Norepinephrine) combined with Intravenous Albumin to reverse splanchnic vasodilation.","Glomerulonephritis; Cyclophosphamide.","Prerenal azotemia; 4 L saline bolus."],"a":1,"t":"Critical Care Nephrology / HRS","e":"HRS-AKI is functional renal failure from splanchnic arterial vasodilation causing severe compensatory renal vasoconstriction. Treatment requires splanchnic vasoconstriction (Terlipressin or Norepinephrine) plus IV Albumin."},
+    {"q":"A postoperative patient has tense abdominal distension, oliguria (<10 mL/hr), and bladder pressure of 26 mmHg. Diagnosis and immediate definitive intervention?","o":["Urinary retention; replace Foley.","Abdominal Compartment Syndrome (ACS); immediate surgical decompression (decompressive laparotomy).","Renal artery thrombosis; thrombolytics.","Septic shock; 2 L crystalloid bolus."],"a":1,"t":"Critical Care / ACS","e":"Intra-Abdominal Pressure (IAP) > 20 mmHg with organ failure defines Abdominal Compartment Syndrome. High pressure crushes renal veins and halts filtration. Immediate surgical decompression laparotomy is required."},
+    {"q":"A patient with AKI has calcium 9.0 mg/dL and phosphate 9.2 mg/dL (Ca x P product = 82.8 mg²/dL²). Why is a Ca x P product > 55 mg²/dL² an emergency threshold?","o":["Accelerates renal potassium excretion.","When Ca x P > 55 mg²/dL², calcium and phosphate exceed solubility and spontaneously precipitate into soft tissues, myocardium, and arterioles, causing metastatic calcification and heart block.","Converts hemoglobin to methemoglobin.","Causes tubular epithelial regeneration."],"a":1,"t":"Mineral & Bone Disorders / Ca x P","e":"When serum Calcium multiplied by Phosphate exceeds 55 mg²/dL², the solubility limit in plasma is surpassed, triggering spontaneous calcium hydroxyapatite precipitation in heart valves, vessels, and tissues."},
+    {"q":"According to KDOQI clinical guidelines, what is the minimum delivered single-pool Kt/V target per treatment for a patient dialyzing three times weekly?","o":["Kt/V = 0.8","Kt/V >= 1.2 (target delivered dose >= 1.4 per session)","Kt/V = 2.5","Kt/V = 0.5"],"a":1,"t":"Hemodialysis / Adequacy (Kt/V)","e":"KDOQI guidelines mandate a minimum delivered dose of Kt/V >= 1.2 per session for thrice-weekly hemodialysis, with a target prescription of 1.4 to ensure adequate middle-molecule and urea clearance."}
 ];
 
 // Combine both 50-question sets into a complete 100-question master test
-const rawQuestions = questionsPart1.concat(questionsPart2);
+const allQuestions = questionsPart1.concat(questionsPart2);
 
 // Structure into 5 sections of 20 questions each
 let sections = [];
 for (let i = 0; i < 5; i++) {
-    sections.push(rawQuestions.slice(i * 20, (i + 1) * 20));
+    sections.push(allQuestions.slice(i * 20, (i + 1) * 20));
 }
 
 let currentSection = 0;
