@@ -23,7 +23,6 @@
             width: 100%; 
         }
         
-        /* HEADER */
         .header { 
             background: #0f172a; 
             padding: 28px; 
@@ -37,33 +36,31 @@
         .header h1 { margin: 0 0 6px 0; font-size: 2.1em; color: #22d3ee; text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; }
         .header p { margin: 0; color: #94a3b8; font-size: 1.02em; font-weight: 500; }
         
-        /* DASHBOARD - TIMERS & STATS */
         .dashboard { 
             display: flex; 
             justify-content: space-between; 
-            align-items: center;
-            background: #090e1a;
-            padding: 14px 22px;
-            border-radius: 12px;
+            align-items: center; 
+            background: #090e1a; 
+            padding: 14px 22px; 
+            border-radius: 12px; 
             margin-top: 18px; 
             border: 1px solid #1e293b; 
             font-weight: 700; 
             font-size: 1.15em; 
             color: #e2e8f0; 
-            flex-wrap: wrap;
-            gap: 12px;
+            flex-wrap: wrap; 
+            gap: 12px; 
         }
         .stat-box { 
             background: rgba(6, 182, 212, 0.08); 
             padding: 8px 16px; 
             border-radius: 8px; 
             border: 1px solid rgba(6, 182, 212, 0.25); 
-            color: #22d3ee;
-            text-align: center;
+            color: #22d3ee; 
+            text-align: center; 
         }
         .timer-red { color: #f87171; border-color: rgba(239, 68, 68, 0.35); background: rgba(239, 68, 68, 0.08); }
         
-        /* QUESTION AREA */
         .question-container { background: #0f172a; padding: 36px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); display: none; margin-bottom: 20px; border: 1px solid #1e293b; }
         .question-container.active { display: block; animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
         @keyframes slideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
@@ -71,7 +68,6 @@
         .subject-tag { display: inline-block; padding: 5px 14px; background: #082f49; color: #38bdf8; font-size: 0.82em; border-radius: 20px; margin-bottom: 18px; font-weight: 800; border: 1px solid #0284c7; text-transform: uppercase; letter-spacing: 0.8px; }
         .q-text { font-size: 1.25em; font-weight: 700; margin-bottom: 26px; color: #f8fafc; line-height: 1.6; }
         
-        /* OPTIONS */
         .options { display: flex; flex-direction: column; gap: 13px; }
         .option-btn { background: #090e1a; border: 2px solid #1e293b; padding: 18px; border-radius: 12px; text-align: left; font-size: 1.05em; cursor: pointer; transition: all 0.2s; color: #cbd5e1; font-weight: 600; line-height: 1.5; }
         
@@ -84,12 +80,10 @@
         .option-btn.incorrect { background: #7f1d1d; border-color: #ef4444; color: #fecaca; box-shadow: 0 0 18px rgba(239, 68, 68, 0.2); }
         .option-btn.disabled { pointer-events: none; }
         
-        /* RATIONALE */
         .rationale { margin-top: 26px; padding: 22px; background: rgba(6, 182, 212, 0.04); border-left: 5px solid #06b6d4; border-radius: 0 12px 12px 0; display: none; font-size: 1.05em; color: #e0f2fe; animation: fadeIn 0.4s; line-height: 1.7; border-top: 1px solid rgba(6, 182, 212, 0.15); border-right: 1px solid rgba(6, 182, 212, 0.15); border-bottom: 1px solid rgba(6, 182, 212, 0.15); }
         .rationale strong { color: #38bdf8; font-size: 1.1em; text-transform: uppercase; letter-spacing: 0.8px; display: block; margin-bottom: 10px; border-bottom: 1px solid rgba(6, 182, 212, 0.25); padding-bottom: 5px; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* NAVIGATION & PROGRESS */
         .navigation { display: flex; justify-content: space-between; margin-top: 30px; gap: 14px; }
         .nav-btn { flex: 1; background: #06b6d4; color: #041019; border: none; padding: 16px; border-radius: 10px; font-size: 1.1em; cursor: pointer; transition: 0.25s; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; text-align: center; }
         .nav-btn:disabled { background: #1e293b; cursor: not-allowed; color: #475569; box-shadow: none; transform: none; }
@@ -97,7 +91,6 @@
         .progress-bar { width: 100%; background: #1e293b; height: 14px; border-radius: 8px; margin-bottom: 24px; overflow: hidden; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5); }
         .progress-fill { height: 100%; background: linear-gradient(90deg, #0891b2, #22d3ee); width: 0%; transition: width 0.3s linear; }
         
-        /* RESULTS SCREEN */
         #results-screen { display: none; background: #0f172a; padding: 42px 20px; border-radius: 16px; text-align: center; border: 1px solid #1e293b; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
         .final-score { font-size: 4.2em; color: #22d3ee; font-weight: 900; margin: 18px 0; text-shadow: 0 0 30px rgba(6, 182, 212, 0.35); }
         
@@ -261,7 +254,7 @@ const rawQuestions = [
     {"q":"A transplant recipient on Tacrolimus is prescribed oral Clarithromycin for bronchitis. Five days later, the patient develops acute renal failure and severe tremors. Why did Clarithromycin precipitate Tacrolimus toxicity?","o":["Clarithromycin displaces tacrolimus from albumin.","Clarithromycin is a potent CYP3A4 and P-glycoprotein inhibitor, shutting down Tacrolimus metabolism and causing toxic drug accumulation.","Clarithromycin damages collecting ducts.","Tacrolimus accelerates clarithromycin clearance."],"a":1,"t":"Pharmacology / Drug Interactions","e":"Tacrolimus is metabolized by hepatic and intestinal CYP3A4. Macrolides (Clarithromycin, Erythromycin) potently inhibit CYP3A4, causing massive Tacrolimus accumulation and acute toxic nephrotoxicity and neurotoxicity."},
     {"q":"A transplant patient on Mycophenolate Mofetil (MMF) reports persistent watery diarrhea (6–8 stools/day) and abdominal cramps. Infectious workups are negative. What is the cause of this GI complication?","o":["Mesenteric rejection.","Direct gastrointestinal mucosal toxicity and enterocyte denudation caused by MMF, requiring dose reduction or conversion to Enteric-Coated Mycophenolate Sodium.","Tacrolimus gastroparesis.","Gluten intolerance from steroids."],"a":1,"t":"Pharmacology / MMF Toxicity","e":"Enterocytes rely on de novo purine synthesis for mucosal renewal. MMF inhibits inosine monophosphate dehydrogenase (IMPDH), causing mucosal villous blunting, erosive gastritis, and severe non-infectious diarrhea."},
     {"q":"Four months post-transplant, a recipient has fever, leukopenia (WBC 2,200/μL), and CMV viremia (>100,000 copies/mL). What is the first-line intravenous antiviral therapy?","o":["Intravenous Acyclovir","Intravenous Ganciclovir (or high-dose oral Valganciclovir)","Intravenous Oseltamivir","Intravenous Foscarnet"],"a":1,"t":"Transplant Infections / CMV","e":"Tissue-invasive CMV disease (leukopenia, hepatitis, pneumonitis) is treated with intravenous Ganciclovir (renally adjusted) or oral Valganciclovir, accompanied by reduction in background immunosuppression."},
-    {"q":"A transplant recipient's urine cytology reveals 'Decoy Cells' with enlarged intranuclear inclusions, and plasma PCR confirms BK Polyomavirus DNA. What is the primary treatment for BK Virus Nephropathy?","o":["High-dose Cidofovir monotherapy.","Stepwise REDUCTION of maintenance immunosuppressive therapy (lowering Tacrolimus and stopping MMF) to restore host antiviral immunity.","Pulsed IV Methylprednisolone for 3 days.","Urgent graft nephrectomy."],"a":1,"t":"Transplant Infections / BK Virus","e":"BK virus reactivates under intense immunosuppression. The proven first-line therapy is reducing maintenance immunosuppression (cutting MMF, lowering CNI targets) to allow the patient's own T-cells to clear viral replication."},
+    {"q":"A patient with acute oliguric rejection of a kidney transplant fails to respond to 3 consecutive daily doses of 1,000 mg IV Methylprednisolone. Allograft biopsy reveals Banff Grade IIB Acute T-cell Mediated Rejection with severe intimal arteritis ('endarteritis') characterized by inflammatory mononuclear cells beneath the vascular endothelium. What is the evidence-based second-line rescue immunosuppressive therapy?","o":["Switching from Tacrolimus to oral Cyclosporine.","Lymphocyte-depleting antibody therapy with Rabbit Anti-Thymocyte Globulin (rATG / Thymoglobulin).","Oral Azathioprine monotherapy.","Emergency graft nephrectomy in all cases."],"a":1,"t":"Transplant Immunology / Rejection Therapy","e":"Banff Grade II and III Acute Cellular Rejection involve vascular intimal arteritis (endarteritis) or transmural arterial necrosis, which carries a severe risk of graft loss. Cases that are refractory to initial high-dose pulse corticosteroids are designated 'steroid-resistant acute rejection'. The standard of care is rescue therapy with lymphocyte-depleting polyclonal antibodies, specifically Rabbit Anti-Thymocyte Globulin (rATG / Thymoglobulin), which causes rapid profound depletion of circulating T-cells."},
     {"q":"In the immediate post-operative period following living-donor kidney transplant, the patient produces 1,200 mL of urine in the first hour. What drives this polyuria, and how are IV fluids managed?","o":["Acute rejection; restrict fluids to 500 mL/day.","Uremic solute diuresis (accumulated pre-transplant urea) and tubular stunning; replace fluid 1:1 hourly with 0.45% or 0.9% Normal Saline based on output.","Diabetes insipidus; administer DDAVP.","Diuretic phase of ATN; administer furosemide."],"a":1,"t":"Transplant Post-Op Care / Fluid Management","e":"Accumulated urea creates an osmotic diuresis combined with transient tubular insensitivity to ADH. The nurse must replace urine output milliliter-for-milliliter (1:1 replacement) hourly to prevent severe hypovolemic shock and graft thrombosis."},
     {"q":"Three hours post-transplant, urine output plummets from 800 mL/hr to 0 mL/hr. The patient has excruciating graft swelling, pain, and BP 190/105. What vascular emergency must be ruled out via emergent Doppler ultrasound?","o":["Allograft pyelonephritis","Renal Vein Thrombosis (RVT) or Renal Artery Thrombosis of the graft","Peritoneal dialysate leak","Lymphocele compressing bladder"],"a":1,"t":"Transplant Emergencies / Vascular","e":"Sudden complete anuria with acute graft swelling and pain is an absolute surgical emergency indicating Renal Vein Thrombosis. Doppler ultrasound must be done immediately, followed by emergent thrombectomy to salvage the graft."},
     {"q":"In correcting severe chronic Hyponatremia (108 mEq/L) with 3% Hypertonic Saline, what is the MAXIMUM safe limit for raising serum sodium in the first 24 hours to prevent Central Pontine Myelinolysis?","o":["No more than 6 to 8 mEq/L total in 24 hours.","Raise sodium by 15 to 20 mEq/L in 12 hours.","Normalize sodium to 135 mEq/L within 24 hours.","Rapid boluses until sodium reaches 140 mEq/L."],"a":0,"t":"Electrolyte Emergencies / Sodium","e":"Overly rapid correction of chronic hyponatremia dehydrates brain cells, causing Osmotic Demyelination Syndrome (Central Pontine Myelinolysis). Guidelines strictly limit correction to <= 6–8 mEq/L in 24 hours."},
@@ -276,13 +269,10 @@ const rawQuestions = [
     {"q":"According to KDOQI clinical guidelines, what is the minimum delivered single-pool Kt/V target per treatment for a patient dialyzing three times weekly?","o":["Kt/V = 0.8","Kt/V >= 1.2 (target delivered dose >= 1.4 per session)","Kt/V = 2.5","Kt/V = 0.5"],"a":1,"t":"Hemodialysis / Adequacy (Kt/V)","e":"KDOQI guidelines mandate a minimum delivered dose of Kt/V >= 1.2 per session for thrice-weekly hemodialysis, with a target prescription of 1.4 to ensure adequate middle-molecule and urea clearance."}
 ];
 
-// Combine both 50-question sets into a complete 100-question master test
-const allQuestions = questionsPart1.concat(questionsPart2);
-
 // Structure into 5 sections of 20 questions each
 let sections = [];
 for (let i = 0; i < 5; i++) {
-    sections.push(allQuestions.slice(i * 20, (i + 1) * 20));
+    sections.push(rawQuestions.slice(i * 20, (i + 1) * 20));
 }
 
 let currentSection = 0;
@@ -465,10 +455,9 @@ window.finishExam = function() {
     document.getElementById('stat-wrong').innerText = wrongCount;
 }
 
-window.onload = function() {
-    renderQuestion();
-    timerInterval = setInterval(updateTimers, 1000);
-};
+// Immediate execution ensures the questions render without waiting on external fonts
+renderQuestion();
+timerInterval = setInterval(updateTimers, 1000);
 </script>
 
 </body>
